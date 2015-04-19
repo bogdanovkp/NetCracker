@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class VIew {
 
 
-    protected void searchOut(){
+    protected int searchOut(){
         System.out.println("1: Search by name");
         System.out.println("2: Search by dept");
         System.out.println("3: Search by phone");
@@ -22,8 +22,7 @@ public class VIew {
             default:
         }
 
-        ModelClass searchView = new ModelClass();
-        searchView.search(item);
+       return item;
     }
 
 }

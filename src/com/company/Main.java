@@ -25,16 +25,21 @@ public class Main {
 
         }*/
 
-        VIew searchOutMain = new VIew();
+            VIew searchOutMain = new VIew();
+            searchOutMain.menu();
+            System.out.println();
+            Scanner in = new Scanner(System.in);
+            int itemMain = in.nextInt();
 
-        System.out.println("1: SEARCH");
-        Scanner in = new Scanner(System.in);
-        int itemMain = in.nextInt();
-        System.out.println();
+            if(itemMain == 1) {
+                searchOutMain.searchOut();
+                System.out.println();
+                Scanner in1 = new Scanner(System.in);
+                int item = in1.nextInt();
 
-        int item = searchOutMain.searchOut();
-        fileMain.search(item, employeeList);
-
+                searchOutMain.searchOutMenu(item);
+                fileMain.search(item, employeeList);
+            }
 
     }
 }

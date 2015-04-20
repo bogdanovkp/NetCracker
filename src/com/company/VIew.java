@@ -4,34 +4,40 @@ import java.util.Scanner;
 
 public class VIew {
 
+    protected void menu(){
 
-    protected int searchOut() {
+        System.out.println("1: SEARCH");
+        System.out.println("2: CREATE");
+        System.out.println();
+    }
+
+    protected void searchOut() {
+
         System.out.println("1: Search by name");
         System.out.println("2: Search by dept");
         System.out.println("3: Search by phone");
         System.out.println("4: Search by salary");
 
-        Scanner in = new Scanner(System.in);
-        int item = in.nextInt();
-            switch (item) {
-                case 1:
-                    System.out.println("Vvedite name:");
-                    break;
-                case 2:
-                    System.out.println("Vvedite dept:");
-                    break;
-                case 3:
-                    System.out.println("Vvedite phone:");
-                    break;
-                case 4:
-                    System.out.println("Vvedite salary:");
-                    break;
-                default:
-                    System.out.println("Input error");
-                    break;
-            }
+    }
 
-            return item;
+    protected void searchOutMenu(int item){
+        switch (item) {
+            case 1:
+                System.out.println("Vvedite name:");
+                break;
+            case 2:
+                System.out.println("Vvedite dept:");
+                break;
+            case 3:
+                System.out.println("Vvedite phone:");
+                break;
+            case 4:
+                System.out.println("Vvedite salary:");
+                break;
+            default:
+                System.out.println("Input error");
+                break;
+        }
 
     }
     public void outEmployee(Employee x){

@@ -7,13 +7,16 @@ import java.util.Scanner;
 public class ModelClass {
 
     public void search(int typeOfSearch, ArrayList<Employee> x){
-
+        Double salarySearch = null;
         while(true){
             VIew viewOut = new VIew();
             Scanner in = new Scanner(System.in);
             String dataSearch = in.nextLine();
+            if (typeOfSearch == 4) {
+                 salarySearch = new Double(dataSearch);
+            }
 
-                if (typeOfSearch == 1){
+            if (typeOfSearch == 1){
                     for (int i = 0; i < x.size(); i++){
                         if (dataSearch.equals(x.get(i).getFirstname()) || dataSearch.equals(x.get(i).getLastname())){
                             viewOut.outEmployee(x.get(i));
@@ -36,7 +39,7 @@ public class ModelClass {
             }
             if (typeOfSearch == 4){
                 for (int i = 0; i < x.size(); i++){
-                    if (dataSearch.equals(x.get(i).getSalary())){
+                    if (salarySearch == x.get(i).getSalary()){
                         viewOut.outEmployee(x.get(i));
                     }
                 }

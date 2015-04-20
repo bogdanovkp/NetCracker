@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ModelClass {
 
-    public void search(int typeOfSearch, ArrayList<Employee> x){
+    public void search(int typeOfSearch, ArrayList<Employee> x) throws InterruptedException, IOException {
         Double salarySearch = null;
         while(true){
             VIew viewOut = new VIew();

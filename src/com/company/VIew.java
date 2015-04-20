@@ -8,7 +8,6 @@ public class VIew {
 
         System.out.println("1: SEARCH");
         System.out.println("2: CREATE");
-        System.out.println();
     }
 
     protected void searchOut() {

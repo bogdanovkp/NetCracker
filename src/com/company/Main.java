@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         ArrayList<Employee> employeeList = new ArrayList<Employee>();
 
@@ -30,6 +30,10 @@ public class Main {
             System.out.println();
             Scanner in = new Scanner(System.in);
             int itemMain = in.nextInt();
+
+
+
+
 
             if(itemMain == 1) {
                 searchOutMain.searchOut();

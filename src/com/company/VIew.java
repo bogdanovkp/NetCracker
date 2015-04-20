@@ -25,4 +25,9 @@ public class VIew {
        return item;
     }
 
+    public void outEmployee(Employee x){
+        System.out.println(x.getFirstname() + "  " + x.getLastname() + "  " + x.getDept().getTitle() + "  " + x.getDept().getChief() + "  " + x.getPhone() + "  " + x.getSalary());
+
+    }
+
 }

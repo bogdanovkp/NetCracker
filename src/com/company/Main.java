@@ -19,23 +19,18 @@ public class Main {
         Gson gson = new Gson();
         ModelClass fileMain = new ModelClass();
 
-        for (int i = 0; i < employeeList.size(); i++){
+       /* for (int i = 0; i < employeeList.size(); i++){
             String json = gson.toJson(employeeList.get(i));
             fileMain.writeFile(json);
 
-        }
-
-
+        }*/
 
         VIew searchOutMain = new VIew();
-
-        //Employee obj = gson.fromJson(proverka, Employee.class);
 
         System.out.println("1: SEARCH");
         Scanner in = new Scanner(System.in);
         int itemMain = in.nextInt();
         System.out.println();
-
 
         int item = searchOutMain.searchOut();
         fileMain.search(item, employeeList);

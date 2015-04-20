@@ -12,7 +12,7 @@ public class Main {
         ArrayList<Employee> employeeList = new ArrayList<Employee>();
 
         Employee EmployeeMain = new Employee("John", "Macclane", "7-555-565-35", 35000, new Dept("47", "Otis Smith"));
-        Employee EmployeeMain1 = new Employee("John","Bryant", "7-333-522-65", 53335, new Dept("1","Phil Dakxon"));
+        Employee EmployeeMain1 = new Employee("John","Bryant", "7-333-522-65", 53335, new Dept("132","Phil Dakxon"));
 
         employeeList.add(EmployeeMain);
         employeeList.add(EmployeeMain1);
@@ -26,10 +26,11 @@ public class Main {
         }*/
 
             VIew searchOutMain = new VIew();
-            searchOutMain.menu();
+            searchOutMain.menu();//основное меню
             System.out.println();
-            Scanner in = new Scanner(System.in);
+            Scanner in = new Scanner(System.in);//сканируем выбор меню
             int itemMain = in.nextInt();
+
 
 
 

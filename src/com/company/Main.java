@@ -1,13 +1,13 @@
 package com.company;
 
 import com.google.gson.Gson;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
 
         ArrayList<Employee> employeeList = new ArrayList<Employee>();
 

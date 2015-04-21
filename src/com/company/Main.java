@@ -26,13 +26,11 @@ public class Main {
         }*/
 
             VIew searchOutMain = new VIew();
+
             searchOutMain.menu();//основное меню
             System.out.println();
             Scanner in = new Scanner(System.in);//сканируем выбор меню
             int itemMain = in.nextInt();
-
-
-
 
 
 
@@ -45,6 +43,7 @@ public class Main {
                 searchOutMain.searchOutMenu(item);
                 fileMain.search(item, employeeList);
             }
+
 
     }
 }

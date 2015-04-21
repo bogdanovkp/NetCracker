@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ModelClass {
 
-    public int search(int typeOfSearch, ArrayList<Employee> x) throws InterruptedException, IOException {
+    public int search(int typeOfSearch, ArrayList<Employee> x)  {
         Double salarySearch = null;
         while(true){
             VIew viewOut = new VIew();
@@ -45,13 +45,25 @@ public class ModelClass {
                 }
             }
             System.out.println();
-            System.out.println("Continue search: Yes(y)  No(n)");
+            System.out.println("Continue search: Yes(y)  No(n)");//продолжить поиск?
             in = new Scanner(System.in);
             String stroka = in.nextLine();
             if (stroka.equals("y")){
-                viewOut.searchOutMenu(typeOfSearch);
+
             }
             else return(1);
+
+            System.out.println();
+            System.out.println("Change search criteria: Yes(y)   No(n)"); //сменить критерий поиска?
+            in = new Scanner(System.in);
+            String strok = in.nextLine();
+            if (strok.equals("y")){
+                in = new Scanner(System.in);
+                String strok1 = in.nextLine();
+                typeOfSearch = new Integer(strok1);
+                viewOut.searchOutMenu(typeOfSearch);
+            }
+            else viewOut.searchOutMenu(typeOfSearch);
 
         }
     }

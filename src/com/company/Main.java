@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args)  {
 
         ArrayList<Employee> employeeList = new ArrayList<Employee>();
 
@@ -25,12 +25,13 @@ public class Main {
 
         }*/
 
-            VIew searchOutMain = new VIew();
+        VIew searchOutMain = new VIew();
+        searchOutMain.menu();//основное меню
+        System.out.println();
+        Scanner in = new Scanner(System.in);//сканируем выбор меню
+        int itemMain = in.nextInt();
 
-            searchOutMain.menu();//основное меню
-            System.out.println();
-            Scanner in = new Scanner(System.in);//сканируем выбор меню
-            int itemMain = in.nextInt();
+
 
 
 

@@ -58,6 +58,7 @@ public class ModelClass {
             in = new Scanner(System.in);
             String strok = in.nextLine();
             if (strok.equals("y")){
+                viewOut.searchOut();
                 in = new Scanner(System.in);
                 String strok1 = in.nextLine();
                 typeOfSearch = new Integer(strok1);

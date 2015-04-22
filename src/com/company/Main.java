@@ -26,21 +26,26 @@ public class Main {
         }*/
 
         VIew searchOutMain = new VIew();
+        int itemMain;
+        do{
         searchOutMain.menu();//основное меню
         System.out.println();
         Scanner in = new Scanner(System.in);//сканируем выбор меню
-        int itemMain = in.nextInt();
+        itemMain = in.nextInt();}
+        while (itemMain != 1);
 
 
 
 
-
+            int item;
             if(itemMain == 1) {
-                searchOutMain.searchOut();
-                System.out.println();
-                Scanner in1 = new Scanner(System.in);
-                int item = in1.nextInt();
-
+                do {
+                    searchOutMain.searchOut();
+                    System.out.println();
+                    Scanner in1 = new Scanner(System.in);
+                    item = in1.nextInt();
+                }
+                while(!(item == 1 || item == 2 || item == 3 || item == 4));
                 searchOutMain.searchOutMenu(item);
                 fileMain.search(item, employeeList);
             }

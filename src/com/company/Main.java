@@ -61,16 +61,12 @@ public class Main {
                 if (item == 1){
                     fileMain.addEmployee(employeeList);
                     System.out.println("111");
-
-
-
-
                 }
-
-
-
             }
+        for (int i = 0; i < employeeList.size(); i++){
+            System.out.println(employeeList.get(i));
 
+        }
 
     }
 }

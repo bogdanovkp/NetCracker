@@ -97,11 +97,34 @@ public class ModelClass {
 
     }
 
-    protected int addEmployee(ArrayList<Employee> y){
-
-
-
-
-       return (1);
+    protected ArrayList addEmployee(ArrayList<Employee> y){
+        VIew viewAdd = new VIew();
+        viewAdd.addEmployeeFirstName();
+        Scanner in = new Scanner(System.in);
+        String nameFirstAdd = in.nextLine();
+        System.out.println();
+        viewAdd.addEmployeeLastName();
+        in = new Scanner(System.in);
+        String nameLastAdd = in.nextLine();
+        System.out.println();
+        viewAdd.addEmployeePhone();
+        in = new Scanner(System.in);
+        String phoneAdd = in.nextLine();
+        System.out.println();
+        viewAdd.addEmployeeChiefDept();
+        in = new Scanner(System.in);
+        String chiefDeptAdd = in.nextLine();
+        System.out.println();
+        viewAdd.addEmployeeTitleDept();
+        in = new Scanner(System.in);
+        String titleDeptAdd = in.nextLine();
+        System.out.println();
+        viewAdd.addEmployeeSalary();
+        in = new Scanner(System.in);
+        Double salaryAdd = in.nextDouble();
+        Employee addEmployee = new Employee(nameFirstAdd,nameLastAdd,phoneAdd,salaryAdd,new Dept(titleDeptAdd,chiefDeptAdd));
+        y.add(addEmployee);
+        System.out.println(y.get(y.size()-1));
+       return y;
     }
 }

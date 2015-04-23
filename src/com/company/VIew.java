@@ -15,14 +15,20 @@ public class VIew {
         System.out.println("2: change Employee data.");
     }
 
-    protected void addEmployee(){
+    protected void addEmployeeFirstName() {
         System.out.println("1: Enter your name.");
-        System.out.println("2: Enter your Familiu.");
-        System.out.println("3: Enter title Dept.");
-        System.out.println("4: Enter chief Dept.");
-        System.out.println("5: Enter your phone.");
-        System.out.println("6: Enter your salary.");
     }
+    protected void addEmployeeLastName(){
+        System.out.println("2: Enter your Familiu.");}
+    protected void addEmployeeTitleDept() {
+        System.out.println("3: Enter title Dept.");}
+    protected void addEmployeeChiefDept(){
+        System.out.println("4: Enter chief Dept.");}
+    protected void addEmployeePhone(){
+        System.out.println("5: Enter your phone.");}
+    protected void addEmployeeSalary(){
+        System.out.println("6: Enter your salary.");}
+
 
     protected void searchOut() {
 

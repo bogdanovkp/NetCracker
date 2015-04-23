@@ -59,8 +59,8 @@ public class Main {
                 }
                 while(!(item == 1 || item == 2));
                 if (item == 1){
-                    searchOutMain.addEmployee();
                     fileMain.addEmployee(employeeList);
+                    System.out.println("111");
 
 
 

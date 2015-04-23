@@ -42,6 +42,13 @@ public class Employee {
     }
 
 
+    protected void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    protected void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
     protected void setPhone(String phone) {
         this.phone = phone;

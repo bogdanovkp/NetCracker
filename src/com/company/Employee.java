@@ -21,37 +21,37 @@ public class Employee {
             this.salary = salary;
     }
 
-    public String getFirstname() {
+    protected String getFirstname() {
         return firstname;
     }
 
-    public String getLastname() {
+    protected String getLastname() {
         return lastname;
     }
 
-    public Dept getDept() {
+    protected Dept getDept() {
         return dept;
     }
 
-    public String getPhone() {
+    protected String getPhone() {
         return phone;
     }
 
-    public double getSalary() {
+    protected double getSalary() {
         return salary;
     }
 
 
 
-    public void setPhone(String phone) {
+    protected void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public void setSalary(double salary) {
+    protected void setSalary(double salary) {
         this.salary = salary;
     }
 
-    public void setDept(Dept dept) {
+    protected void setDept(Dept dept) {
         this.dept = dept;
     }
 

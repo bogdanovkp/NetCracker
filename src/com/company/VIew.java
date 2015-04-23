@@ -6,8 +6,22 @@ public class VIew {
 
     protected void menu(){
 
-        System.out.println("1: SEARCH");
-        System.out.println("2: CREATE");
+        System.out.println("1: SEARCH");//поиск
+        System.out.println("2: ADDITION AND CHANGE");//добавление
+    }
+
+    protected void menuAdd(){
+        System.out.println("1: add a new Employee.");
+        System.out.println("2: change Employee data.");
+    }
+
+    protected void addEmployee(){
+        System.out.println("1: Enter your name.");
+        System.out.println("2: Enter your Familiu.");
+        System.out.println("3: Enter title Dept.");
+        System.out.println("4: Enter chief Dept.");
+        System.out.println("5: Enter your phone.");
+        System.out.println("6: Enter your salary.");
     }
 
     protected void searchOut() {

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ModelClass {
 
-    public int search(int typeOfSearch, ArrayList<Employee> x)  {
+    protected int search(int typeOfSearch, ArrayList<Employee> x)  {
         Double salarySearch = null;
         while(true){
             VIew viewOut = new VIew();
@@ -95,5 +95,13 @@ public class ModelClass {
         in.close();
         return stroka;
 
+    }
+
+    protected int addEmployee(ArrayList<Employee> y){
+
+
+
+
+       return (1);
     }
 }

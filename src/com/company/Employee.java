@@ -1,17 +1,19 @@
 package com.company;
 
 
+import java.util.ArrayList;
+
 public class Employee {
 
-    private String firstname;// имя
+    private String firstname;// РёРјСЏ
 
-    private String lastname;//фамилия
+    private String lastname;//С„Р°РјРёР»РёСЏ
 
-    private Dept dept;// отдел
+    private Dept dept;// РѕС‚РґРµР»
 
-    private String phone;// телефон
+    private String phone;// С‚РµР»РµС„РѕРЅ
 
-    private double salary; // зарплата
+    private double salary; //Р·Р°СЂРїР»Р°С‚Р°
 
     public Employee (String firstname,String lastname, String phone, double salary, Dept dept){
             this.firstname = firstname;
@@ -64,6 +66,10 @@ public class Employee {
 
     @Override
     public String toString() {
-        return firstname + "  " + lastname +"  "+ dept.getTitle() + "  " +  dept.getChief() +"  "+ phone +"  "+ salary +"  ";
+        return firstname + "  " + lastname +"  "+ dept.getTitle() + "  " +  dept.getChief().getFirstName()+"  "+ dept.getChief().getLastName() +"  "+ phone +"  "+ salary +"  ";
     }
+
+
+
 }
+

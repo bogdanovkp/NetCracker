@@ -1,19 +1,26 @@
 package com.company;
 
 public class Dept {
-    private String title;//название отдела
-    private String chief;//начальник
+    private String title;// РЅР°Р·РІР°РЅРёРµ РѕС‚РґРµР»Р°
+    private Chief chief;//РЅР°С‡Р°Р»СЊРЅРёРє
 
-    public Dept(String title, String chief){
+    public Dept(String title, Chief chief){
         this.chief = chief;
         this.title = title;
     }
 
-    protected String getChief() {
+    protected Chief getChief() {
         return chief;
     }
-
     protected String getTitle() {
         return title;
+    }
+
+    protected void setChief(Chief chief) {
+        this.chief = chief;
+    }
+
+    protected void setTitle(String title) {
+        this.title = title;
     }
 }

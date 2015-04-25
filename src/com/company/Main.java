@@ -32,7 +32,8 @@ public class Main {
         System.out.println();
         Scanner in = new Scanner(System.in);//сканируем выбор меню
         itemMain = in.nextInt();}
-        while (itemMain != 1);
+        while (!(itemMain == 1 || itemMain == 2));
+
 
 
 
@@ -49,7 +50,23 @@ public class Main {
                 searchOutMain.searchOutMenu(item);
                 fileMain.search(item, employeeList);
             }
+            if (itemMain == 2){
+                do {
+                    searchOutMain.menuAdd();
+                    System.out.println();
+                    Scanner in1 = new Scanner(System.in);
+                    item = in1.nextInt();
+                }
+                while(!(item == 1 || item == 2));
+                if (item == 1){
+                    fileMain.addEmployee(employeeList);
+                    System.out.println("111");
+                }
+            }
+        for (int i = 0; i < employeeList.size(); i++){
+            System.out.println(employeeList.get(i));
 
+        }
 
     }
 }

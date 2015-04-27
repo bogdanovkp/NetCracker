@@ -7,7 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ControllerClass {
-    ModelClass employeeController = new ModelClass();
 
     protected ArrayList search(int typeOfSearch, ArrayList<Employee> x) throws Exception {
         Double salarySearch = null;
@@ -88,7 +87,7 @@ public class ControllerClass {
         return m.matches();
     }
     protected static boolean checkDept(String userString){
-        Pattern p = Pattern.compile("^[a-zA-Z0-9]{3,100}$");
+        Pattern p = Pattern.compile("^[a-zA-Z0-9]{1,100}$");
         Matcher m = p.matcher(userString);
         return m.matches();
     }

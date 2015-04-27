@@ -6,9 +6,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class VIew {
-    ControllerClass controller = new ControllerClass();
-    ModelClass inModelClass = new ModelClass();
-    ArrayList<Employee> employee = new ArrayList();
+   private ControllerClass controller = new ControllerClass();
+   private ModelClass inModelClass = new ModelClass();
+   private ArrayList<Employee> employee = new ArrayList();
 
     protected void menu(){
         System.out.println("1: ПОИСК");
@@ -136,6 +136,7 @@ public class VIew {
                     }
                     catch (MyException e){
                         VIew.this.errorIn();
+
                         VIew.this.searchOutMenu(4);
                     }
                     catch (Exception e){

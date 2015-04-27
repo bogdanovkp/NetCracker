@@ -6,9 +6,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class VIew {
-
-
     ControllerClass controller = new ControllerClass();
+    ModelClass inModelClass = new ModelClass();
     ArrayList<Employee> employee = new ArrayList();
 
     protected void menu(){
@@ -28,11 +27,13 @@ public class VIew {
                 case 3: System.exit(0);
 
                 default:
+                    System.out.println("Неверный ввод!!! Повторите еще раз.");
                     VIew.this.menu();
                     break;
             }
         }
         catch (InputMismatchException e){
+            System.out.println("Неверный ввод!!! Повторите еще раз.");
             VIew.this.menu();
         }
     }
@@ -62,10 +63,13 @@ public class VIew {
                     VIew.this.menu();
                     break;
                 default:
+                    System.out.println("Неверный ввод!!! Повторите еще раз.");
                     VIew.this.searchOut();
+                    break;
             }
         }
         catch (InputMismatchException e){
+            System.out.println("Неверный ввод!!! Повторите еще раз.");
             VIew.this.searchOut();
         } catch (Exception e) {
             e.printStackTrace();
@@ -79,7 +83,7 @@ public class VIew {
                 case 1:
                     System.out.println("Введите имя или фамилию:");
                     try {
-                    employee = controller.search(1,controller.employeeMain());
+                    employee = controller.search(1, inModelClass.employeeMain());
                     for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
 
                     }
@@ -93,7 +97,7 @@ public class VIew {
                 case 2:
                     System.out.println("Введите название отдела или начальника:");
                     try {
-                        employee = controller.search(2,controller.employeeMain());
+                        employee = controller.search(2,inModelClass.employeeMain());
                         for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
 
                     }
@@ -106,7 +110,7 @@ public class VIew {
                 case 3:
                     System.out.println("Введите телефон:");
                     try {
-                        employee = controller.search(3,controller.employeeMain());
+                        employee = controller.search(3,inModelClass.employeeMain());
                         for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
 
                     }
@@ -119,7 +123,7 @@ public class VIew {
                 case 4:
                     System.out.println("Введите зарплату:");
                     try {
-                        employee = controller.search(4,controller.employeeMain());
+                        employee = controller.search(4,inModelClass.employeeMain());
                         for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
 
                     }
@@ -138,28 +142,50 @@ public class VIew {
             int item = in.nextInt();
             switch (item){
                 case 1:
-                    System.out.println("Сменить критерий поиска: 1 - ДА   2 - НЕТ");
-                    int criterium = in.nextInt();
-                    if (criterium == 1) {
-                        VIew.this.searchOut();
-                    }
-                    else{
-                        VIew.this.searchOutMenu(searchCriterium);
-                    }
-
-                case 2: VIew.this.menu();break;
-                default: VIew.this.changeSearch(searchCriterium);
+                    VIew.this.changeCriteruim(searchCriterium);
+                    break;
+                case 2:
+                    VIew.this.menu();
+                    break;
+                default:
+                    System.out.println("Неверный ввод!!! Повторите еще раз.");
+                    VIew.this.changeSearch(searchCriterium);
+                    break;
             }
-
         }
         catch (InputMismatchException e){
+            System.out.println("Неверный ввод!!! Повторите еще раз.");
             VIew.this.changeSearch(searchCriterium);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
+
+    protected void changeCriteruim (int changeSearchCriterium){
+        try {
+            System.out.println("Сменить критерий поиска: 1- ДА   2-НЕТ");
+            Scanner in = new Scanner(System.in);
+            int item = in.nextInt();
+            switch (item){
+                case 1:
+                    VIew.this.searchOut();
+                    break;
+                case 2:
+                    VIew.this.searchOutMenu(changeSearchCriterium);
+                    break;
+                default:
+                    System.out.println("Неверный ввод!!! Повторите еще раз.");
+                    VIew.this.changeCriteruim(changeSearchCriterium);
+                    break;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Неверный ввод!!! Повторите еще раз.");
+            VIew.this.changeCriteruim(changeSearchCriterium);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     protected void menuAdd(){
         System.out.println("1: add a new Employee.");

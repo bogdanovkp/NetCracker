@@ -74,8 +74,6 @@ public class VIew {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     protected void searchOutMenu(int item) throws Exception {
@@ -86,11 +84,12 @@ public class VIew {
                     employee = controller.search(1, inModelClass.employeeMain());
                     for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
 
-                    }
-                    catch (Exception e){
+                    } catch (MyException e){
+                        VIew.this.errorIn();
+                        VIew.this.searchOutMenu(1);
+                    } catch (Exception e){
                         VIew.this.outNotFound();
                     }
-
                     VIew.this.changeSearch(1);
                     break;
 
@@ -100,6 +99,10 @@ public class VIew {
                         employee = controller.search(2,inModelClass.employeeMain());
                         for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
 
+                    }
+                    catch (MyException e){
+                        VIew.this.errorIn();
+                        VIew.this.searchOutMenu(2);
                     }
                     catch (Exception e){
                         VIew.this.outNotFound();
@@ -114,6 +117,10 @@ public class VIew {
                         for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
 
                     }
+                    catch (MyException e){
+                        VIew.this.errorIn();
+                        VIew.this.searchOutMenu(3);
+                    }
                     catch (Exception e){
                         VIew.this.outNotFound();
                     }
@@ -126,6 +133,10 @@ public class VIew {
                         employee = controller.search(4,inModelClass.employeeMain());
                         for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
 
+                    }
+                    catch (MyException e){
+                        VIew.this.errorIn();
+                        VIew.this.searchOutMenu(4);
                     }
                     catch (Exception e){
                         VIew.this.outNotFound();
@@ -188,23 +199,46 @@ public class VIew {
 
 
     protected void menuAdd(){
-        System.out.println("1: add a new Employee.");
-        System.out.println("2: change Employee data.");
+        System.out.println("1: Добавить нового сотрудника.");
+        System.out.println("2: Изменить данные сотрудника.");
+        System.out.println("3: Назад.");
+        try {
+            Scanner in = new Scanner(System.in);
+            int item = in.nextInt();
+            switch (item){
+                case 1:
+                    VIew.this.addNewEmployee();
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+                    VIew.this.menu();
+                    break;
+                default:
+                    System.out.println("Неверный ввод!!! Повторите еще раз.");
+                    VIew.this.menuAdd();
+                    break;
+            }
+        }
+        catch (InputMismatchException e){
+            System.out.println("Неверный ввод!!! Повторите еще раз.");
+            VIew.this.menuAdd();
+        }
     }
 
-    protected void addEmployeeFirstName() {
-        System.out.println("1: Ent.");
+    protected void addNewEmployee(){
+        System.out.println("Введите имя:");
+
+
+        System.out.println("Введите фамилию:");
+        System.out.println("Введите название отдела:");
+        System.out.println("Введите начальника отдела:");
+        System.out.println("Введите телефон:");
+        System.out.println("Введите зарплату:");
+
+
     }
-    protected void addEmployeeLastName(){
-        System.out.println("2: Enter your Familiu.");}
-    protected void addEmployeeTitleDept() {
-        System.out.println("3: Enter title Dept.");}
-    protected void addEmployeeChiefDept(){
-        System.out.println("4: Enter chief Dept.");}
-    protected void addEmployeePhone(){
-        System.out.println("5: Enter your phone.");}
-    protected void addEmployeeSalary(){
-        System.out.println("6: Enter your salary.");}
 
 
 
@@ -217,6 +251,9 @@ public class VIew {
     }
     protected void outNotFound() {
         System.out.println("Не найдено!!!");
+    }
+    protected void errorIn(){
+        System.out.println("Неверно введены данные!!!");
     }
 
 }

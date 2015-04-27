@@ -3,9 +3,11 @@ import java.nio.channels.ScatteringByteChannel;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControllerClass {
-
+    ModelClass employeeController = new ModelClass();
 
     protected ArrayList search(int typeOfSearch, ArrayList<Employee> x) throws Exception {
         Double salarySearch = null;
@@ -16,9 +18,9 @@ public class ControllerClass {
             if (typeOfSearch == 4) {
                  salarySearch = new Double(dataSearch);
             }
-
             switch (typeOfSearch) {
                 case 1:
+                    if (!ControllerClass.checkName(dataSearch)) throw new MyException();
                     for (int i = 0; i < x.size(); i++) {
                         if (dataSearch.equals(x.get(i).getFirstname()) || dataSearch.equals(x.get(i).getLastname())) {
                             temp.add(x.get(i));
@@ -31,6 +33,7 @@ public class ControllerClass {
                         throw new Exception();
                     }
                 case 2:
+                    if (!ControllerClass.checkDept(dataSearch))throw new MyException();
                     for (int i = 0; i < x.size(); i++) {
                         if (dataSearch.equals(x.get(i).getDept().getChief().getFirstName()) ||dataSearch.equals(x.get(i).getDept().getChief().getLastName()) || dataSearch.equals(x.get(i).getDept().getTitle())) {
                             temp.add(x.get(i));
@@ -44,6 +47,7 @@ public class ControllerClass {
                     }
 
                 case 3:
+                    if (!ControllerClass.checkPhone(dataSearch)) throw new MyException();
                     for (int i = 0; i < x.size(); i++) {
                         if (dataSearch.equals(x.get(i).getPhone())) {
                             temp.add(x.get(i));
@@ -57,6 +61,7 @@ public class ControllerClass {
                     }
 
                 case 4:
+                    if (!ControllerClass.checkSalary(dataSearch)) throw new MyException();
                     for (int i = 0; i < x.size(); i++) {
                         if (salarySearch == x.get(i).getSalary()) {
                             temp.add(x.get(i));
@@ -68,9 +73,29 @@ public class ControllerClass {
                     else {
                         throw new Exception();
                     }
+            }
         }
+    }
 
-        }
+    protected static boolean checkName(String userString){
+        Pattern p = Pattern.compile("^[a-zA-Z]{3,100}$");
+        Matcher m = p.matcher(userString);
+        return m.matches();
+    }
+    protected static boolean checkSalary (String userstring){
+        Pattern p = Pattern.compile("^[0-9]{1,100}$");
+        Matcher m = p.matcher(userstring);
+        return m.matches();
+    }
+    protected static boolean checkDept(String userString){
+        Pattern p = Pattern.compile("^[a-zA-Z0-9]{3,100}$");
+        Matcher m = p.matcher(userString);
+        return m.matches();
+    }
+    protected static boolean checkPhone (String userString){
+        Pattern p = Pattern.compile("^[0-9-]$");
+        Matcher m = p.matcher(userString);
+        return m.matches();
     }
 
     public void writeFile(String stroka){
@@ -101,6 +126,12 @@ public class ControllerClass {
 
     }
 
+    protected String addFirstName(){
+        Scanner in = new Scanner(System.in);
+        String temp = in.nextLine();
+        return temp;
+    }
+
     /*  VIew viewAdd = new VIew();
         viewAdd.addEmployeeFirstName();
         Scanner in = new Scanner(System.in);
@@ -129,5 +160,5 @@ public class ControllerClass {
         y.add(addEmployee);
         System.out.println(y.get(y.size()-1));
        return y;
-    }*/
+    */
 }

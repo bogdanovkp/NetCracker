@@ -6,17 +6,19 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ControllerClass {
+interface Controller{
+    ArrayList search(int x, ArrayList<Employee> y) throws Exception;
+    boolean addEmployee(int x) throws MyException;
+}
 
-    protected ArrayList search(int typeOfSearch, ArrayList<Employee> x) throws Exception {
-        Double salarySearch = null;
+public class ControllerClass implements Controller  {
+
+    public ArrayList search(int typeOfSearch, ArrayList<Employee> x) throws Exception {
+        Double salarySearch;
         ArrayList temp = new ArrayList();
         while(true){
             Scanner in = new Scanner(System.in);
             String dataSearch = in.nextLine();
-            if (typeOfSearch == 4) {
-                 salarySearch = new Double(dataSearch);
-            }
             switch (typeOfSearch) {
                 case 1:
                     if (!ControllerClass.checkName(dataSearch)) throw new MyException();
@@ -26,7 +28,7 @@ public class ControllerClass {
                         }
                     }
                     if (temp.size() != 0){
-                    return temp;
+                        return temp;
                     }
                     else {
                         throw new Exception();
@@ -61,6 +63,7 @@ public class ControllerClass {
 
                 case 4:
                     if (!ControllerClass.checkSalary(dataSearch)) throw new MyException();
+                    salarySearch = new Double(dataSearch);
                     for (int i = 0; i < x.size(); i++) {
                         if (salarySearch == x.get(i).getSalary()) {
                             temp.add(x.get(i));
@@ -81,8 +84,9 @@ public class ControllerClass {
         Matcher m = p.matcher(userString);
         return m.matches();
     }
+
     protected static boolean checkSalary (String userstring){
-        Pattern p = Pattern.compile("^[0-9]{1,100}$");
+        Pattern p = Pattern.compile("^[\\d]{1,20}$");
         Matcher m = p.matcher(userstring);
         return m.matches();
     }
@@ -92,72 +96,48 @@ public class ControllerClass {
         return m.matches();
     }
     protected static boolean checkPhone (String userString){
-        Pattern p = Pattern.compile("^[0-9-]$");
+        Pattern p = Pattern.compile("^[\\d-]{1,20}$");
         Matcher m = p.matcher(userString);
         return m.matches();
     }
 
-    public void writeFile(String stroka){
-        FileWriter writeFile = null;
-        try {
-            File logFile = new File("C:\\data.txt");
-            writeFile = new FileWriter(logFile,true);
-            writeFile.append(stroka).append("\r").append("\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if(writeFile != null) {
-                try {
-                    writeFile.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+    public boolean addEmployee(int item) throws MyException {
+        Employee employee = new Employee();
 
-    public String readFile() throws IOException{
-        String stroka = "";
-        Scanner in = new Scanner(new File("C:\\data.txt"));
-        stroka = stroka + in.nextLine() + "\r"+"\n";
-        in.close();
-        return stroka;
-
-    }
-
-    protected String addFirstName(){
         Scanner in = new Scanner(System.in);
         String temp = in.nextLine();
-        return temp;
+        switch (item){
+            case 1://имя
+                if (!ControllerClass.checkName(temp)) throw new MyException(1);
+                employee.setFirstname(temp);
+                break;
+            case 2://фамилия
+                if (!ControllerClass.checkName(temp)) throw new MyException(2);
+                employee.setLastname(temp);
+                break;
+            case 3://телефон
+                if (!ControllerClass.checkPhone(temp)) throw new MyException(3);
+                employee.setPhone(temp);
+                break;
+            case 4://зарплата
+                if (!ControllerClass.checkSalary(temp)) throw new MyException(4);
+                employee.setSalary(new Double(temp));
+                break;
+            case 5://название отдела
+                if (!ControllerClass.checkDept(temp)) throw new MyException(5);
+                employee.getDept().setTitle(temp);
+                break;
+            case 6://имя начальника отдела
+                if (!ControllerClass.checkName(temp)) throw new MyException(6);
+                employee.getDept().getChief().setFirstName(temp);
+                break;
+            case 7://фамилия начальника отдела
+                if (!ControllerClass.checkName(temp)) throw new MyException(7);
+                employee.getDept().getChief().setLastName(temp);
+                break;
+        }
+        return (true);
     }
 
-    /*  VIew viewAdd = new VIew();
-        viewAdd.addEmployeeFirstName();
-        Scanner in = new Scanner(System.in);
-        String nameFirstAdd = in.nextLine();
-        System.out.println();
-        viewAdd.addEmployeeLastName();
-        in = new Scanner(System.in);
-        String nameLastAdd = in.nextLine();
-        System.out.println();
-        viewAdd.addEmployeePhone();
-        in = new Scanner(System.in);
-        String phoneAdd = in.nextLine();
-        System.out.println();
-        viewAdd.addEmployeeChiefDept();
-        in = new Scanner(System.in);
-        String chiefDeptAdd = in.nextLine();
-        System.out.println();
-        viewAdd.addEmployeeTitleDept();
-        in = new Scanner(System.in);
-        String titleDeptAdd = in.nextLine();
-        System.out.println();
-        viewAdd.addEmployeeSalary();
-        in = new Scanner(System.in);
-        Double salaryAdd = in.nextDouble();
-        Employee addEmployee = new Employee(nameFirstAdd,nameLastAdd,phoneAdd,salaryAdd,new Dept(titleDeptAdd,chiefDeptAdd));
-        y.add(addEmployee);
-        System.out.println(y.get(y.size()-1));
-       return y;
-    */
+
 }

@@ -16,11 +16,14 @@ public class Employee {
     private double salary; //зарплата
 
     public Employee (String firstname,String lastname, String phone, double salary, Dept dept){
-            this.firstname = firstname;
-            this.lastname = lastname;
-            this.dept = dept;
-            this.phone = phone;
-            this.salary = salary;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.dept = dept;
+        this.phone = phone;
+        this.salary = salary;
+    }
+    public Employee(){
+
     }
 
     protected String getFirstname() {
@@ -68,8 +71,6 @@ public class Employee {
     public String toString() {
         return firstname + "  " + lastname +"  "+ dept.getTitle() + "  " +  dept.getChief().getFirstName()+"  "+ dept.getChief().getLastName() +"  "+ phone +"  "+ salary +"  ";
     }
-
-
 
 }
 

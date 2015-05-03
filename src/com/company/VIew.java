@@ -1,6 +1,5 @@
 package com.company;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -8,7 +7,6 @@ import java.util.Scanner;
 
 public class VIew {
     private ControllerClass controller = new ControllerClass();
-    private ModelClass inModelClass = new ModelClass();
     private ArrayList<Employee> employee = new ArrayList();
 
     protected void menu(){
@@ -148,7 +146,7 @@ public class VIew {
             int item = in.nextInt();
             switch (item){
                 case 1:
-                    VIew.this.changeCriteruim(searchCriterium);
+                    VIew.this.changeCriteria(searchCriterium);
                     break;
                 case 2:
                     VIew.this.menu();
@@ -166,7 +164,7 @@ public class VIew {
             e.printStackTrace();
         }
     }
-    protected void changeCriteruim (int changeSearchCriterium){
+    protected void changeCriteria(int changeSearchCriterium){
         try {
             System.out.println("Сменить критерий поиска: 1- ДА   2-НЕТ");
             Scanner in = new Scanner(System.in);
@@ -180,12 +178,12 @@ public class VIew {
                     break;
                 default:
                     System.out.println("Неверный ввод!!! Повторите еще раз.");
-                    VIew.this.changeCriteruim(changeSearchCriterium);
+                    VIew.this.changeCriteria(changeSearchCriterium);
                     break;
             }
         } catch (InputMismatchException e) {
             System.out.println("Неверный ввод!!! Повторите еще раз.");
-            VIew.this.changeCriteruim(changeSearchCriterium);
+            VIew.this.changeCriteria(changeSearchCriterium);
         } catch (Exception e) {
             e.printStackTrace();
         }

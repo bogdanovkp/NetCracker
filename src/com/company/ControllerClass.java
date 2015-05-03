@@ -30,7 +30,7 @@ public class ControllerClass implements Controller  {
                             temp.add(x.get(i));
                         }
                     }
-                    if (temp.size() != 0){
+                    if (temp.isEmpty()){
                         return temp;
                     }
                     else {
@@ -43,7 +43,7 @@ public class ControllerClass implements Controller  {
                             temp.add(x.get(i));
                         }
                     }
-                    if (temp.size() != 0){
+                    if (temp.isEmpty()){
                         return temp;
                     }
                     else {
@@ -57,7 +57,7 @@ public class ControllerClass implements Controller  {
                             temp.add(x.get(i));
                         }
                     }
-                    if (temp.size() != 0){
+                    if (temp.isEmpty()){
                         return temp;
                     }
                     else {
@@ -72,7 +72,7 @@ public class ControllerClass implements Controller  {
                             temp.add(x.get(i));
                         }
                     }
-                    if (temp.size() != 0){
+                    if (temp.isEmpty()){
                         return temp;
                     }
                     else {

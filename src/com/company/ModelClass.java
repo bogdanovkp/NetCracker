@@ -4,20 +4,27 @@ package com.company;
 
 import com.google.gson.Gson;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.Scanner;
-
 import java.util.ArrayList;
+
 
 
 public  class ModelClass{
     protected static ArrayList<Employee> employeeMain() throws IOException {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Gson gson = new Gson();
-        StringBuffer json = readFile();
-        Employee e = gson.fromJson(String.valueOf(json),Employee.class);
+        String json;
+        BufferedReader tempString = new BufferedReader();
+        tempString = readFile();
+        while ((json = tempString.readLine()) != null)
+
+
+
+
+       // Employee e = gson.fromJson(String.valueOf(json),Employee.class);
 
        /*
         Employee EmployeeMain = new Employee("John", "Macclane", "7-555-565-35", 35000, new Dept("47", new Chief("Otis", "Smith")));
@@ -27,16 +34,16 @@ public  class ModelClass{
 
         String json = gson.toJson(employeeList);*/
 
-        return employeeList;
+
+            return employeeList;
+
     }
 
     protected static StringBuffer readFile() throws IOException {
-
-
         Scanner in = null;
         StringBuffer data = null;
         try {
-            in = new Scanner(new File("K:\\Student\\Java\\GitHub\\employee.txt"));
+            in = new Scanner(new File("employee.txt"));
             data = new StringBuffer();
             while (in.hasNext())
                 data.append(in.nextLine()).append("\n");

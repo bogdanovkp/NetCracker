@@ -5,6 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidationChecking {
+
     protected static boolean checkName(String userString){
         Pattern p = Pattern.compile("^[a-zA-Z]{3,100}$");
         Matcher m = p.matcher(userString);

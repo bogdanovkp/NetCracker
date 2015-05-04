@@ -38,6 +38,7 @@ public class VIew {
             e.printStackTrace();
         }
     }
+
     protected void searchOut() {
         System.out.println("1: Поиск по имени");
         System.out.println("2: Поиск по отделу");
@@ -76,69 +77,41 @@ public class VIew {
             e.printStackTrace();
         }
     }
+
+    void searchMethod(int item) throws Exception {
+        try {
+            employee = controller.search(item, ModelClass.employeeMain());
+            for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
+        } catch (MyException e){
+            VIew.this.errorIn();
+            VIew.this.searchOutMenu(item);
+        } catch (Exception e){
+            VIew.this.outNotFound();
+        }
+        VIew.this.changeSearch(item);
+    }
+
     protected void searchOutMenu(int item) throws Exception {
         switch (item) {
             case 1:
                 System.out.println("Введите имя или фамилию:");
-                try {
-                    employee = controller.search(1, ModelClass.employeeMain());
-                    for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
-                } catch (MyException e){
-                    VIew.this.errorIn();
-                    VIew.this.searchOutMenu(1);
-                } catch (Exception e){
-                    VIew.this.outNotFound();
-                }
-                VIew.this.changeSearch(1);
+                VIew.this.searchMethod(1);
                 break;
             case 2:
                 System.out.println("Введите название отдела или начальника:");
-                try {
-                    employee = controller.search(2,ModelClass.employeeMain());
-                    for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
-                }
-                catch (MyException e){
-                    VIew.this.errorIn();
-                    VIew.this.searchOutMenu(2);
-                }
-                catch (Exception e){
-                    VIew.this.outNotFound();
-                }
-                VIew.this.changeSearch(2);
+                VIew.this.searchMethod(2);
                 break;
             case 3:
                 System.out.println("Введите телефон:");
-                try {
-                    employee = controller.search(3,ModelClass.employeeMain());
-                    for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
-                }
-                catch (MyException e){
-                    VIew.this.errorIn();
-                    VIew.this.searchOutMenu(3);
-                }
-                catch (Exception e){
-                    VIew.this.outNotFound();
-                }
-                VIew.this.changeSearch(3);
+                VIew.this.searchMethod(3);
                 break;
             case 4:
                 System.out.println("Введите зарплату:");
-                try {
-                    employee = controller.search(4,ModelClass.employeeMain());
-                    for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
-                }
-                catch (MyException e){
-                    VIew.this.errorIn();
-
-                    VIew.this.searchOutMenu(4);
-                }
-                catch (Exception e){
-                    VIew.this.outNotFound();
-                }
-                VIew.this.changeSearch(4);
+                VIew.this.searchMethod(4);
                 break;
         }
     }
+
     protected void changeSearch( int searchCriterium){
         try{
             System.out.println("Продолжить поиск: 1 - ДА   2 - НЕТ");

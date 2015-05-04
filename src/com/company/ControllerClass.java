@@ -1,10 +1,8 @@
 package com.company;
-import java.nio.channels.ScatteringByteChannel;
-import java.io.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 interface Controller{
     ArrayList search(int x, ArrayList<Employee> y) throws Exception;
@@ -30,7 +28,7 @@ public class ControllerClass implements Controller  {
                             temp.add(x.get(i));
                         }
                     }
-                    if (temp.isEmpty()){
+                    if (!temp.isEmpty()){
                         return temp;
                     }
                     else {
@@ -43,7 +41,7 @@ public class ControllerClass implements Controller  {
                             temp.add(x.get(i));
                         }
                     }
-                    if (temp.isEmpty()){
+                    if (!temp.isEmpty()){
                         return temp;
                     }
                     else {
@@ -57,7 +55,7 @@ public class ControllerClass implements Controller  {
                             temp.add(x.get(i));
                         }
                     }
-                    if (temp.isEmpty()){
+                    if (!temp.isEmpty()){
                         return temp;
                     }
                     else {
@@ -72,7 +70,7 @@ public class ControllerClass implements Controller  {
                             temp.add(x.get(i));
                         }
                     }
-                    if (temp.isEmpty()){
+                    if (!temp.isEmpty()){
                         return temp;
                     }
                     else {

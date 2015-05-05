@@ -23,9 +23,9 @@ public class ControllerClass implements Controller  {
             switch (typeOfSearch) {
                 case NAME:
                     if (!ValidationChecking.checkName(dataSearch)) throw new MyException();
-                    for (int i = 0; i < x.size(); i++) {
-                        if (dataSearch.equals(x.get(i).getFirstname()) || dataSearch.equals(x.get(i).getLastname())) {
-                            temp.add(x.get(i));
+                    for (int element = 0; element < x.size(); element++) {
+                        if (dataSearch.equals(x.get(element).getFirstname()) || dataSearch.equals(x.get(element).getLastname())) {
+                            temp.add(x.get(element));
                         }
                     }
                     if (!temp.isEmpty()){
@@ -36,9 +36,9 @@ public class ControllerClass implements Controller  {
                     }
                 case DEPT:
                     if (!ValidationChecking.checkDept(dataSearch))throw new MyException();
-                    for (int i = 0; i < x.size(); i++) {
-                        if (dataSearch.equals(x.get(i).getDept().getChief().getFirstName()) ||dataSearch.equals(x.get(i).getDept().getChief().getLastName()) || dataSearch.equals(x.get(i).getDept().getTitle())) {
-                            temp.add(x.get(i));
+                    for (int element = 0; element < x.size(); element++) {
+                        if (dataSearch.equals(x.get(element).getDept().getChief().getFirstName()) ||dataSearch.equals(x.get(element).getDept().getChief().getLastName()) || dataSearch.equals(x.get(element).getDept().getTitle())) {
+                            temp.add(x.get(element));
                         }
                     }
                     if (!temp.isEmpty()){
@@ -50,9 +50,9 @@ public class ControllerClass implements Controller  {
 
                 case PHONE:
                     if (!ValidationChecking.checkPhone(dataSearch)) throw new MyException();
-                    for (int i = 0; i < x.size(); i++) {
-                        if (dataSearch.equals(x.get(i).getPhone())) {
-                            temp.add(x.get(i));
+                    for (int element = 0; element < x.size(); element++) {
+                        if (dataSearch.equals(x.get(element).getPhone())) {
+                            temp.add(x.get(element));
                         }
                     }
                     if (!temp.isEmpty()){
@@ -65,9 +65,9 @@ public class ControllerClass implements Controller  {
                 case SALARY:
                     if (!ValidationChecking.checkSalary(dataSearch)) throw new MyException();
                     salarySearch = new Double(dataSearch);
-                    for (int i = 0; i < x.size(); i++) {
-                        if (salarySearch == x.get(i).getSalary()) {
-                            temp.add(x.get(i));
+                    for (int element = 0; element < x.size(); element++) {
+                        if (salarySearch == x.get(element).getSalary()) {
+                            temp.add(x.get(element));
                         }
                     }
                     if (!temp.isEmpty()){

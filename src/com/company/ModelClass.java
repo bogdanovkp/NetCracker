@@ -3,8 +3,6 @@ package com.company;
 
 
 import com.google.gson.Gson;
-
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -16,45 +14,27 @@ public  class ModelClass{
     protected static ArrayList<Employee> employeeMain() throws IOException {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Gson gson = new Gson();
-        String json;
-        BufferedReader tempString = new BufferedReader();
-        tempString = readFile();
-        while ((json = tempString.readLine()) != null)
-
-
-
-
-       // Employee e = gson.fromJson(String.valueOf(json),Employee.class);
-
-       /*
-        Employee EmployeeMain = new Employee("John", "Macclane", "7-555-565-35", 35000, new Dept("47", new Chief("Otis", "Smith")));
-        Employee EmployeeMain1 = new Employee("John","Bryant", "7-333-522-65", 35000, new Dept("132",new Chief("Wein", "Bruce")));
-        employeeList.add(EmployeeMain);
-        employeeList.add(EmployeeMain1);
-
-        String json = gson.toJson(employeeList);*/
-
-
+        ArrayList<String> objReadFile = new ArrayList();
+        objReadFile.addAll(readFile());
+        for (int i=0;i<objReadFile.size();i++){
+              employeeList.add(gson.fromJson(objReadFile.get(i), Employee.class));
+        }
             return employeeList;
-
     }
 
-    protected static StringBuffer readFile() throws IOException {
+    protected static ArrayList readFile() throws IOException {
         Scanner in = null;
-        StringBuffer data = null;
+        ArrayList<String> data = new ArrayList<>();
         try {
             in = new Scanner(new File("employee.txt"));
-            data = new StringBuffer();
             while (in.hasNext())
-                data.append(in.nextLine()).append("\n");
-        } catch (Exception ex) {
+                data.add(in.nextLine());
+        } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
             assert in != null;
             in.close();
         }
-
         return data;
-
     }
 }

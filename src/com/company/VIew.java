@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -12,7 +13,8 @@ public class VIew {
     protected void menu(){
         System.out.println("1: ПОИСК");
         System.out.println("2: ДОБАВЛЕНИЕ, ИЗМЕНЕНИЕ");
-        System.out.println("3: ВЫХОД!!!");
+        System.out.println("3: ПРОСМОТРЕТЬ ВСЮ БАЗУ");
+        System.out.println("4: ВЫХОД!!!");
         try {
             Scanner in = new Scanner(System.in);
             int item = in.nextInt();
@@ -23,7 +25,10 @@ public class VIew {
                 case 2:
                     VIew.this.menuAdd();
                     break;
-                case 3: System.exit(0);
+                case 3:
+                    VIew.this.review();
+                    break;
+                case 4: System.exit(0);
 
                 default:
                     System.out.println("Неверный ввод!!! Повторите еще раз.");
@@ -37,6 +42,12 @@ public class VIew {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    void review() throws IOException {
+        for (Object element:ModelClass.employeeMain())
+            System.out.println(element);
+        VIew.this.menu();
     }
 
     protected void searchOut() {

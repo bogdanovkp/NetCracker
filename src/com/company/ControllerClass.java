@@ -1,12 +1,13 @@
 package com.company;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 interface Controller{
     ArrayList search(int x, ArrayList<Employee> y) throws Exception;
-    boolean addEmployee(int x) throws MyException;
+
 }
 
 public class ControllerClass implements Controller  {
@@ -14,6 +15,8 @@ public class ControllerClass implements Controller  {
     final int DEPT=2;
     final int PHONE=3;
     final int SALARY=4;
+    private  static  Employee employee = new Employee();
+
     public ArrayList search(int typeOfSearch, ArrayList<Employee> x) throws Exception {
         Double salarySearch;
         ArrayList temp = new ArrayList();
@@ -80,43 +83,51 @@ public class ControllerClass implements Controller  {
         }
     }
 
-    public boolean addEmployee(int item) throws MyException {
-        Employee employee = new Employee();
-
+    public void addFirstName () throws MyException {
         Scanner in = new Scanner(System.in);
         String temp = in.nextLine();
-        switch (item){
-            case 1://имя
-                if (!ValidationChecking.checkName(temp)) throw new MyException(1);
-                employee.setFirstname(temp);
-                break;
-            case 2://фамилия
-                if (!ValidationChecking.checkName(temp)) throw new MyException(2);
-                employee.setLastname(temp);
-                break;
-            case 3://телефон
-                if (!ValidationChecking.checkPhone(temp)) throw new MyException(3);
-                employee.setPhone(temp);
-                break;
-            case 4://зарплата
-                if (!ValidationChecking.checkSalary(temp)) throw new MyException(4);
-                employee.setSalary(new Double(temp));
-                break;
-            case 5://название отдела
-                if (!ValidationChecking.checkDept(temp)) throw new MyException(5);
-                employee.getDept().setTitle(temp);
-                break;
-            case 6://имя начальника отдела
-                if (!ValidationChecking.checkName(temp)) throw new MyException(6);
-                employee.getDept().getChief().setFirstName(temp);
-                break;
-            case 7://фамилия начальника отдела
-                if (!ValidationChecking.checkName(temp)) throw new MyException(7);
-                employee.getDept().getChief().setLastName(temp);
-                break;
-        }
-        return (true);
+        if (!ValidationChecking.checkName(temp)) throw new MyException();
+        employee.setFirstname(temp);
+    }
+    public void addLastName () throws MyException {
+        Scanner in = new Scanner(System.in);
+        String temp = in.nextLine();
+        if (!ValidationChecking.checkName(temp)) throw new MyException();
+        employee.setLastname(temp);
+    }
+    public void addPhone () throws MyException {
+        Scanner in = new Scanner(System.in);
+        String temp = in.nextLine();
+        if (!ValidationChecking.checkPhone(temp)) throw new MyException();
+        employee.setPhone(temp);
+    }
+    public void addSalary () throws MyException {
+        Scanner in = new Scanner(System.in);
+        String temp = in.nextLine();
+        if (!ValidationChecking.checkSalary(temp)) throw new MyException();
+        employee.setSalary(new Double(temp));
+    }
+    public void addTitle () throws MyException {
+        Scanner in = new Scanner(System.in);
+        String temp = in.nextLine();
+        if (!ValidationChecking.checkDept(temp)) throw new MyException();
+        employee.getDept().setTitle(temp);
+    }
+    public void addChiefFirstName () throws MyException {
+        Scanner in = new Scanner(System.in);
+        String temp = in.nextLine();
+        if (!ValidationChecking.checkName(temp)) throw new MyException();
+        employee.getDept().getChief().setFirstName(temp);
+    }
+    public void addChiefLastName () throws MyException {
+        Scanner in = new Scanner(System.in);
+        String temp = in.nextLine();
+        if (!ValidationChecking.checkName(temp)) throw new MyException();
+        employee.getDept().getChief().setLastName(temp);
     }
 
+    public void addEmployee () throws IOException {
+        ModelClass.addEmployeeFile(employee);
+    }
 
 }

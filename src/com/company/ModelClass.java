@@ -1,11 +1,14 @@
 package com.company;
 import com.google.gson.Gson;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public  class ModelClass{
+    private static final String FILENAME = "employee.txt";
+
     protected static ArrayList<Employee> employeeMain() throws IOException {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Gson gson = new Gson();
@@ -21,7 +24,7 @@ public  class ModelClass{
         Scanner in = null;
         ArrayList<String> data = new ArrayList<>();
         try {
-            in = new Scanner(new File("employee.txt"));
+            in = new Scanner(new File(FILENAME));
             while (in.hasNext())
                 data.add(in.nextLine());
         } catch (IOException ex) {
@@ -32,4 +35,23 @@ public  class ModelClass{
         }
         return data;
     }
+
+    protected static void writeFile(String stroka) throws IOException {
+       try {
+           FileWriter fileWrite = new FileWriter(FILENAME, true);
+           fileWrite.write("\n" + stroka + "\n");
+           fileWrite.close();
+       }catch (IOException e){
+
+       }
+    }
+
+    protected static void addEmployeeFile(Employee example) throws IOException {
+        ArrayList<Employee> exampleList = new ArrayList<>();
+        exampleList.add(example);
+        Gson gson = new Gson();
+        String json = gson.toJson(exampleList);
+        ModelClass.writeFile(json);
+    }
 }
+

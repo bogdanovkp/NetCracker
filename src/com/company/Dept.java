@@ -9,18 +9,19 @@ public class Dept {
         this.title = title;
     }
 
-    protected Chief getChief() {
+    public Chief getChief() {
         return chief;
     }
-    protected String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    protected void setChief(Chief chief) {
+    public void setChief(Chief chief){
+
         this.chief = chief;
     }
 
-    protected void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 }

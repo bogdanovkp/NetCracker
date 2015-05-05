@@ -1,8 +1,5 @@
 package com.company;
 
-
-import java.util.ArrayList;
-
 public class Employee {
 
     private String firstname;// имя
@@ -63,9 +60,12 @@ public class Employee {
         this.salary = salary;
     }
 
-    protected void setDept(Dept dept) {
+    protected void setDept(Dept dept){
+
         this.dept = dept;
     }
+
+
 
     @Override
     public String toString() {

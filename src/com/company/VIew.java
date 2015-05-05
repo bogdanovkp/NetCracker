@@ -1,4 +1,5 @@
 package com.company;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -156,6 +157,7 @@ public class VIew {
             e.printStackTrace();
         }
     }
+
     protected void menuAdd()  {
         System.out.println("1: Добавить нового сотрудника.");
         System.out.println("2: Изменить данные сотрудника.");
@@ -186,35 +188,39 @@ public class VIew {
             e.printStackTrace();
         }
     }
+
     protected void addNewEmployee(int item) throws MyException{
         try {
             switch (item){
                 case 1:
                     System.out.println("Введите имя:");
-                    controller.addEmployee(1);
+                    controller.addFirstName();
                 case 2:
                     System.out.println("Введите фамилию:");
-                    controller.addEmployee(2);
+                    controller.addLastName();
                 case 3:
                     System.out.println("Введите телефон:");
-                    controller.addEmployee(3);
+                    controller.addPhone();
                 case 4:
                     System.out.println("Введите зарплату:");
-                    controller.addEmployee(4);
+                    controller.addSalary();
                 case 5:
                     System.out.println("Введите название отдела:");
-                    controller.addEmployee(5);
+                    controller.addTitle();
                 case 6:
                     System.out.println("Введите имя начальника отдела:");
-                    controller.addEmployee(6);
+                    controller.addChiefFirstName();
                 case 7:
                     System.out.println("Введите фамилию начальника отдела:");
-                    controller.addEmployee(7);
-                    break;
+                    controller.addChiefLastName();
+                case 8:
+                    controller.addEmployee();
             }
         }
         catch (MyException e){
             VIew.this.addNewEmployee(e.val());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         VIew.this.menu();

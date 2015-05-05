@@ -1,14 +1,9 @@
 package com.company;
-
-
-
 import com.google.gson.Gson;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
-
-
 
 public  class ModelClass{
     protected static ArrayList<Employee> employeeMain() throws IOException {
@@ -16,7 +11,7 @@ public  class ModelClass{
         Gson gson = new Gson();
         ArrayList<String> objReadFile = new ArrayList();
         objReadFile.addAll(readFile());
-        for (int i=0;i<objReadFile.size();i++){
+        for (int i=0;i < objReadFile.size();i++){
               employeeList.add(gson.fromJson(objReadFile.get(i), Employee.class));
         }
             return employeeList;
@@ -30,9 +25,8 @@ public  class ModelClass{
             while (in.hasNext())
                 data.add(in.nextLine());
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Файл не найден!");
         } finally {
-            assert in != null;
             in.close();
         }
         return data;

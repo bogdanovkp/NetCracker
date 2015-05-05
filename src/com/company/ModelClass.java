@@ -27,6 +27,7 @@ public  class ModelClass{
         } catch (IOException ex) {
             System.out.println("Файл не найден!");
         } finally {
+            if (in == null) throw new AssertionError();
             in.close();
         }
         return data;

@@ -14,3 +14,4 @@
 {"firstname":"John","lastname":"Jiisf","dept":{"title":"43","chief":{"firstName":"Jnbhs","lastName":"Rsvssv"}},"phone":"7-555-565-42","salary":35000.0}
 {"firstname":"Wwww","lastname":"Qqqq","dept":{"title":"32","chief":{"firstName":"Wqqqq","lastName":"Dssss"}},"phone":"1-11-111","salary":30000.0}
 {"firstname":"Eeee","lastname":"Rrrr","dept":{"title":"54","chief":{"firstName":"REeee","lastName":"Ewwww"}},"phone":"2-222-22","salary":100000.0}
+{"firstname":"Konstantin","lastname":"Bogdanov","dept":{"title":"BUZA","chief":{"firstName":"Gorkov","lastName":"Denis"}},"phone":"8908-376-93-36","salary":50000.0}

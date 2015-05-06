@@ -167,7 +167,7 @@ public class VIew {
             int item = in.nextInt();
             switch (item){
                 case 1:
-                    VIew.this.addNewEmployee(1);
+                    VIew.this.addNewEmployee();
                     break;
                 case 2:
 
@@ -189,41 +189,8 @@ public class VIew {
         }
     }
 
-    protected void addNewEmployee(int item) throws MyException{
-        try {
-            switch (item){
-                case 1:
-                    System.out.println("Введите имя:");
-                    controller.addFirstName();
-                case 2:
-                    System.out.println("Введите фамилию:");
-                    controller.addLastName();
-                case 3:
-                    System.out.println("Введите телефон:");
-                    controller.addPhone();
-                case 4:
-                    System.out.println("Введите зарплату:");
-                    controller.addSalary();
-                case 5:
-                    System.out.println("Введите название отдела:");
-                    controller.addTitle();
-                case 6:
-                    System.out.println("Введите имя начальника отдела:");
-                    controller.addChiefFirstName();
-                case 7:
-                    System.out.println("Введите фамилию начальника отдела:");
-                    controller.addChiefLastName();
-                case 8:
-                    controller.addEmployee();
-                    break;
-            }
-        }
-        catch (MyException e){
-            VIew.this.addNewEmployee(e.val());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    protected void addNewEmployee() throws MyException, IOException {
+        Add.addNewFirstName();
         System.out.println("Запись прошла успешно!!!");
         VIew.this.menu();
 

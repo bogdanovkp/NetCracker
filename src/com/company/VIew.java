@@ -9,7 +9,7 @@ public class VIew {
     private ControllerClass controller = new ControllerClass();
     private ArrayList<Employee> employee = new ArrayList();
 
-    protected void menu(){
+    protected void menu() throws IOException, MyException {
         System.out.println("1: ПОИСК");
         System.out.println("2: ДОБАВЛЕНИЕ, ИЗМЕНЕНИЕ");
         System.out.println("3: ВЫХОД!!!");
@@ -77,7 +77,7 @@ public class VIew {
     void searchMethod(int item) throws Exception {
         try {
             employee = controller.search(item, ModelClass.employeeMain());
-            for (int i = 0; i < employee.size(); i++) VIew.this.outEmployee(employee.get(i));
+            for (int element = 0; element < employee.size(); element++) VIew.this.outEmployee(employee.get(element));
         } catch (MyException e){
             VIew.this.errorIn();
             VIew.this.searchOutMenu(item);
@@ -133,7 +133,7 @@ public class VIew {
             e.printStackTrace();
         }
     }
-    protected void changeCriteria(int changeSearchCriterium){
+    protected void changeCriteria(int changeSearchCriterium) throws Exception {
         try {
             System.out.println("Сменить критерий поиска: 1- ДА   2-НЕТ");
             Scanner in = new Scanner(System.in);
@@ -153,12 +153,10 @@ public class VIew {
         } catch (InputMismatchException e) {
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             VIew.this.changeCriteria(changeSearchCriterium);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
-    protected void menuAdd()  {
+    protected void menuAdd() throws IOException, MyException {
         System.out.println("1: Добавить нового сотрудника.");
         System.out.println("2: Изменить данные сотрудника.");
         System.out.println("3: Назад.");
@@ -184,8 +182,6 @@ public class VIew {
         catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             VIew.this.menuAdd();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

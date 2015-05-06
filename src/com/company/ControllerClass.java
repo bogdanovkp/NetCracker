@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 interface Controller{
     ArrayList search(int x, ArrayList<Employee> y) throws Exception;
-
 }
 
 public class ControllerClass implements Controller  {

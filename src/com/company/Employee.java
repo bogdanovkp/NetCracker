@@ -19,10 +19,6 @@ public class Employee {
         this.phone = phone;
         this.salary = salary;
     }
-    public Employee(){
-
-    }
-
     protected String getFirstname() {
         return firstname;
     }

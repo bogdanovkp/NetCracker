@@ -215,6 +215,7 @@ public class VIew {
                     controller.addChiefLastName();
                 case 8:
                     controller.addEmployee();
+                    break;
             }
         }
         catch (MyException e){
@@ -223,6 +224,7 @@ public class VIew {
             e.printStackTrace();
         }
 
+        System.out.println("Запись прошла успешно!!!");
         VIew.this.menu();
 
     }

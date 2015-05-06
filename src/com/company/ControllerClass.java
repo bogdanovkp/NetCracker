@@ -15,7 +15,7 @@ public class ControllerClass implements Controller  {
     final int DEPT=2;
     final int PHONE=3;
     final int SALARY=4;
-    private  static  Employee employee = new Employee();
+    private  static  Employee employee = new Employee("","","",0,new Dept("", new Chief("","")));
 
     public ArrayList search(int typeOfSearch, ArrayList<Employee> x) throws Exception {
         Double salarySearch;

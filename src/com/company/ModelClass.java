@@ -39,18 +39,17 @@ public  class ModelClass{
     protected static void writeFile(String stroka) throws IOException {
        try {
            FileWriter fileWrite = new FileWriter(FILENAME, true);
-           fileWrite.write("\n" + stroka + "\n");
+           fileWrite.write(stroka + "\n");
            fileWrite.close();
        }catch (IOException e){
-
+           System.out.println("Файл не найден!");
        }
+        ModelClass.readFile();
     }
 
     protected static void addEmployeeFile(Employee example) throws IOException {
-        ArrayList<Employee> exampleList = new ArrayList<>();
-        exampleList.add(example);
         Gson gson = new Gson();
-        String json = gson.toJson(exampleList);
+        String json = gson.toJson(example);
         ModelClass.writeFile(json);
     }
 }

@@ -11,7 +11,7 @@ public class VIew {
 
     protected void menu() throws IOException, MyException {
         System.out.println("1: ПОИСК");
-        System.out.println("2: ДОБАВЛЕНИЕ, ИЗМЕНЕНИЕ");
+        System.out.println("2: ДОБАВЛЕНИЕ");
         System.out.println("3: ВЫХОД!!!");
         try {
             Scanner in = new Scanner(System.in);
@@ -79,10 +79,11 @@ public class VIew {
             employee = controller.search(item, ModelClass.employeeMain());
             for (int element = 0; element < employee.size(); element++) VIew.this.outEmployee(employee.get(element));
         } catch (MyException e){
-            VIew.this.errorIn();
+            e.getMessage();
             VIew.this.searchOutMenu(item);
-        } catch (Exception e){
-            VIew.this.outNotFound();
+        }
+        catch (Exception e){
+            VIew.outNotFound();
         }
         VIew.this.changeSearch(item);
     }
@@ -108,7 +109,7 @@ public class VIew {
         }
     }
 
-    protected void changeSearch( int searchCriterium){
+    protected void changeSearch( int searchCriterium) throws Exception {
         try{
             System.out.println("Продолжить поиск: 1 - ДА   2 - НЕТ");
             Scanner in = new Scanner(System.in);
@@ -129,8 +130,6 @@ public class VIew {
         catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             VIew.this.changeSearch(searchCriterium);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
     protected void changeCriteria(int changeSearchCriterium) throws Exception {
@@ -158,8 +157,7 @@ public class VIew {
 
     protected void menuAdd() throws IOException, MyException {
         System.out.println("1: Добавить нового сотрудника.");
-        System.out.println("2: Изменить данные сотрудника.");
-        System.out.println("3: Назад.");
+        System.out.println("2: Назад.");
         try {
             Scanner in = new Scanner(System.in);
             int item = in.nextInt();
@@ -168,9 +166,6 @@ public class VIew {
                     VIew.this.addNewEmployee();
                     break;
                 case 2:
-
-                    break;
-                case 3:
                     VIew.this.menu();
                     break;
                 default:
@@ -197,11 +192,8 @@ public class VIew {
                 + "  " + x.getDept().getChief().getLastName() + "  " + x.getPhone() + "  " + x.getSalary());
 
     }
-    protected void outNotFound() {
+    protected static void outNotFound() {
         System.out.println("Не найдено!!!");
-    }
-    protected void errorIn(){
-        System.out.println("Неверно введены данные!!!");
     }
 
 }

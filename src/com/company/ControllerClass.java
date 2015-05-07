@@ -24,7 +24,7 @@ public class ControllerClass implements Controller  {
             String dataSearch = in.nextLine();
             switch (typeOfSearch) {
                 case NAME:
-                    if (!ValidationChecking.checkName(dataSearch)) throw new MyException();
+                    if (!ValidationChecking.checkName(dataSearch)) throw new MyException("Неправильно введено имя. Повторите ввод:");
                     for (int element = 0; element < x.size(); element++) {
                         if (dataSearch.equals(x.get(element).getFirstname()) || dataSearch.equals(x.get(element).getLastname())) {
                             temp.add(x.get(element));
@@ -37,7 +37,7 @@ public class ControllerClass implements Controller  {
                         throw new Exception();
                     }
                 case DEPT:
-                    if (!ValidationChecking.checkDept(dataSearch))throw new MyException();
+                    if (!ValidationChecking.checkDept(dataSearch))throw new MyException("Неправильно введен отдел или ФИО начальник. Повторите ввод:");
                     for (int element = 0; element < x.size(); element++) {
                         if (dataSearch.equals(x.get(element).getDept().getChief().getFirstName()) ||dataSearch.equals(x.get(element).getDept().getChief().getLastName()) || dataSearch.equals(x.get(element).getDept().getTitle())) {
                             temp.add(x.get(element));
@@ -51,7 +51,7 @@ public class ControllerClass implements Controller  {
                     }
 
                 case PHONE:
-                    if (!ValidationChecking.checkPhone(dataSearch)) throw new MyException();
+                    if (!ValidationChecking.checkPhone(dataSearch)) throw new MyException("Неправильно введен телефон. Повторите ввод:");
                     for (int element = 0; element < x.size(); element++) {
                         if (dataSearch.equals(x.get(element).getPhone())) {
                             temp.add(x.get(element));
@@ -65,7 +65,7 @@ public class ControllerClass implements Controller  {
                     }
 
                 case SALARY:
-                    if (!ValidationChecking.checkSalary(dataSearch)) throw new MyException();
+                    if (!ValidationChecking.checkSalary(dataSearch)) throw new MyException("Неправильно введена зарплата. Повторите ввод:");
                     salarySearch = new Double(dataSearch);
                     for (int element = 0; element < x.size(); element++) {
                         if (salarySearch == x.get(element).getSalary()) {

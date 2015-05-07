@@ -1,5 +1,4 @@
 package com.company;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -9,7 +8,7 @@ public class VIew {
     private ControllerClass controller = new ControllerClass();
     private ArrayList<Employee> employee = new ArrayList();
 
-    protected void menu() throws IOException, MyException {
+    protected void menu() throws Exception {
         System.out.println("1: ПОИСК");
         System.out.println("2: ДОБАВЛЕНИЕ");
         System.out.println("3: ВЫХОД!!!");
@@ -35,7 +34,7 @@ public class VIew {
             VIew.this.menu();
         }
     }
-    protected void searchOut() {
+    protected void searchOut() throws Exception {
         System.out.println("1: Поиск по имени");
         System.out.println("2: Поиск по отделу");
         System.out.println("3: Поиск по телефону");
@@ -69,8 +68,6 @@ public class VIew {
         catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             VIew.this.searchOut();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -155,7 +152,7 @@ public class VIew {
         }
     }
 
-    protected void menuAdd() throws IOException, MyException {
+    protected void menuAdd() throws Exception {
         System.out.println("1: Добавить нового сотрудника.");
         System.out.println("2: Назад.");
         try {
@@ -180,11 +177,10 @@ public class VIew {
         }
     }
 
-    protected void addNewEmployee() throws MyException, IOException {
+    protected void addNewEmployee() throws Exception {
         Add.addNewFirstName();
         System.out.println("Запись прошла успешно!!!");
         VIew.this.menu();
-
     }
 
     public void outEmployee(Employee x){

@@ -4,74 +4,75 @@ package com.company;
 import java.io.IOException;
 
 public class Add {
-    static void addNewFirstName() throws MyException, IOException {
+    private  ControllerClass controller = new ControllerClass();
+     void addNewFirstName() throws MyException, IOException {
         try {
             System.out.println("Введите имя:");
-            ControllerClass.addFirstName();
+            controller.addFirstName();
         } catch (MyException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             addNewFirstName();
         }
         addNewLastName();
     }
-    static void addNewLastName() throws MyException, IOException {
+     void addNewLastName() throws MyException, IOException {
         try {
             System.out.println("Введите фамилию:");
-            ControllerClass.addLastName();
+            controller.addLastName();
         } catch (MyException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             addNewLastName();
         }
         addNewPhone();
     }
-    static void addNewPhone() throws MyException, IOException {
+     void addNewPhone() throws MyException, IOException {
         try {
             System.out.println("Введите телефон:");
-            ControllerClass.addPhone();
+            controller.addPhone();
         } catch (MyException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             addNewPhone();
         }
         addNewSalary();
     }
-    static void addNewSalary() throws MyException, IOException {
+     void addNewSalary() throws MyException, IOException {
         try {
             System.out.println("Введите зарплату:");
-            ControllerClass.addSalary();
+            controller.addSalary();
         } catch (MyException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             addNewSalary();
         }
         addNewTitle();
     }
-    static void addNewTitle() throws MyException, IOException {
+     void addNewTitle() throws MyException, IOException {
         try {
             System.out.println("Введите название отдела:");
-            ControllerClass.addTitle();
+            controller.addTitle();
         } catch (MyException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             addNewTitle();
         }
         addNewChiefFirstName();
     }
-    static void addNewChiefFirstName() throws MyException, IOException {
+     void addNewChiefFirstName() throws MyException, IOException {
         try {
             System.out.println("Введите имя начальника отдела:");
-            ControllerClass.addChiefFirstName();
+            controller.addChiefFirstName();
         } catch (MyException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             addNewChiefFirstName();
         }
         addNewChiefLastName();
     }
-    static void addNewChiefLastName() throws MyException, IOException {
+     void addNewChiefLastName() throws MyException, IOException {
         try {
             System.out.println("Введите фамилию начальника отдела:");
-            ControllerClass.addChiefLastName();
+            controller.addChiefLastName();
         } catch (MyException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
             addNewChiefLastName();
         }
-        ControllerClass.addEmployee();
+         controller.addEmployee();
     }
 }

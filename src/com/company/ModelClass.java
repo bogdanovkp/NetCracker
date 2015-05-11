@@ -1,15 +1,17 @@
 package com.company;
 import com.google.gson.Gson;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public  class ModelClass{
-    private static final String FILENAME = "employee.txt";
+    private  final String FILENAME = "employee.txt";
 
-    protected static ArrayList<Employee> employeeMain() throws IOException {
+    protected ArrayList<Employee> employeeMain() throws IOException {
         ArrayList<Employee> employeeList = new ArrayList<>();
         Gson gson = new Gson();
         ArrayList<String> objReadFile = new ArrayList();
@@ -20,7 +22,7 @@ public  class ModelClass{
             return employeeList;
     }
 
-    protected static ArrayList readFile() throws IOException {
+      ArrayList readFile() throws IOException {
         Scanner in = null;
         ArrayList<String> data = new ArrayList<>();
         try {
@@ -36,21 +38,46 @@ public  class ModelClass{
         return data;
     }
 
-    protected static void writeFile(String stroka) throws IOException {
-       try {
-           FileWriter fileWrite = new FileWriter(FILENAME, true);
-           fileWrite.write(stroka + "\n");
-           fileWrite.close();
+      void writeFile(String stroka) throws IOException {
+          FileWriter fileWrite =  new FileWriter(FILENAME, true);
+        try {
+            fileWrite.write(stroka + "\r\n");
+            fileWrite.flush();
+
        }catch (IOException e){
            System.out.println("Файл не найден!");
        }
-        ModelClass.readFile();
+          finally {
+            fileWrite.close();
+        }
     }
 
-    protected static void addEmployeeFile(Employee example) throws IOException {
+    void addEmployeeFile(Employee example) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(example);
-        ModelClass.writeFile(json);
+        writeFile(json);
+    }
+
+    void addEmployeeOnremove(ArrayList<Employee> example) throws IOException {
+        Gson gson = new Gson();
+        String json;
+        for (int element = 0; element < example.size(); element ++){
+            json = gson.toJson(example.get(element));
+            writeFileOnremove(json);
+        }
+    }
+
+    void writeFileOnremove(String stroka) throws IOException{
+        FileWriter fileWrite = new FileWriter(FILENAME,false);
+        try {
+            fileWrite.write(stroka + "\r\n");
+            fileWrite.flush();
+
+        }catch (IOException e){
+            System.out.println("Файл не найден!");
+        }finally {
+            fileWrite.close();
+        }
     }
 }
 

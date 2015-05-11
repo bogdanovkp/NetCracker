@@ -96,53 +96,80 @@ public class ControllerClass implements Controller  {
         }
     }
 
-    void amendEmployee(int indexEmployee, ArrayList<Employee> data){
+    void changeEmployee(int indexEmployee, ArrayList<Employee> data){
 
 
     }
 
 
-     void addFirstName () throws MyException {
+     void addFirstName (String firstName) throws MyException {
+         if (firstName.equals(" ")){
          Scanner in = new Scanner(System.in);
          String temp = in.nextLine();
         if (!ValidationChecking.checkName(temp)) throw new MyException("Неверно введено имя. Повторите ввод:");
         employee.setFirstname(temp);
+         }
+         else employee.setFirstname(firstName);
+
     }
-     void addLastName () throws MyException {
-         Scanner in = new Scanner(System.in);
-         String temp = in.nextLine();
-        if (!ValidationChecking.checkName(temp)) throw new MyException("Неверно введена фамилия. Повторите ввод:");
-        employee.setLastname(temp);
+     void addLastName (String lastName) throws MyException {
+         if (lastName.equals(" ")) {
+             Scanner in = new Scanner(System.in);
+             String temp = in.nextLine();
+             if (!ValidationChecking.checkName(temp)) throw new MyException("Неверно введена фамилия. Повторите ввод:");
+             employee.setLastname(temp);
+         }
+         else employee.setLastname(lastName);
     }
-      void addPhone () throws MyException {
-          Scanner in = new Scanner(System.in);
-          String temp = in.nextLine();
-        if (!ValidationChecking.checkPhone(temp)) throw new MyException("Неверно введен телефон. Повторите ввод:");
-        employee.setPhone(temp);
+      void addPhone (String phone) throws MyException {
+          if (phone.equals(" ")) {
+              Scanner in = new Scanner(System.in);
+              String temp = in.nextLine();
+              if (!ValidationChecking.checkPhone(temp))
+                  throw new MyException("Неверно введен телефон. Повторите ввод:");
+              employee.setPhone(temp);
+          }
+          else employee.setPhone(phone);
     }
-     void addSalary () throws MyException {
-         Scanner in = new Scanner(System.in);
-         String temp = in.nextLine();
-        if (!ValidationChecking.checkSalary(temp)) throw new MyException("Неверно введена зарплата. Повторите ввод:");
-        employee.setSalary(new Double(temp));
+     void addSalary (String salary) throws MyException {
+         if (salary.equals(" ")) {
+             Scanner in = new Scanner(System.in);
+             String temp = in.nextLine();
+             if (!ValidationChecking.checkSalary(temp))
+                 throw new MyException("Неверно введена зарплата. Повторите ввод:");
+             employee.setSalary(new Double(temp));
+         }
+         else employee.setSalary(new Double(salary));
     }
-      void addTitle () throws MyException {
-          Scanner in = new Scanner(System.in);
-          String temp = in.nextLine();
-        if (!ValidationChecking.checkDept(temp)) throw new MyException("Неверно введено название отдела. Повторите ввод:");
-        employee.getDept().setTitle(temp);
+      void addTitle (String title) throws MyException {
+          if (title.equals(" ")) {
+              Scanner in = new Scanner(System.in);
+              String temp = in.nextLine();
+              if (!ValidationChecking.checkDept(temp))
+                  throw new MyException("Неверно введено название отдела. Повторите ввод:");
+              employee.getDept().setTitle(temp);
+          }
+          else employee.getDept().setTitle(title);
     }
-      void addChiefFirstName () throws MyException {
-          Scanner in = new Scanner(System.in);
-          String temp = in.nextLine();
-        if (!ValidationChecking.checkName(temp)) throw new MyException("Неверно введено имя начальника отдела. Повторите ввод:");
-        employee.getDept().getChief().setFirstName(temp);
+      void addChiefFirstName (String chiefFirstName) throws MyException {
+          if (chiefFirstName.equals(" ")) {
+              Scanner in = new Scanner(System.in);
+              String temp = in.nextLine();
+              if (!ValidationChecking.checkName(temp))
+                  throw new MyException("Неверно введено имя начальника отдела. Повторите ввод:");
+              employee.getDept().getChief().setFirstName(temp);
+          }
+          else employee.getDept().getChief().setFirstName(chiefFirstName);
     }
-     void addChiefLastName () throws MyException {
-         Scanner in = new Scanner(System.in);
-         String temp = in.nextLine();
-        if (!ValidationChecking.checkName(temp)) throw new MyException("Неверно введена фамилия начальника отдела. Повторите ввод:");
-        employee.getDept().getChief().setLastName(temp);
+     void addChiefLastName (String chiefLastName) throws MyException {
+         if (chiefLastName.equals(" ")) {
+             Scanner in = new Scanner(System.in);
+             String temp = in.nextLine();
+             if (!ValidationChecking.checkName(temp))
+                 throw new MyException("Неверно введена фамилия начальника отдела. Повторите ввод:");
+             employee.getDept().getChief().setLastName(temp);
+         }
+         else employee.getDept().getChief().setLastName(chiefLastName);
     }
 
       void addEmployee () throws IOException {

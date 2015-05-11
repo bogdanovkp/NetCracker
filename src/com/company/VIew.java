@@ -99,19 +99,55 @@ public class VIew {
             changeSearch(item);
         }
         if (item == 1){
-            outRemove();
+            choiceRemoveOrChange();
         }
         else changeSearch(item);
     }
 
-    void outRemove() throws Exception {
-            System.out.println("Удалить выбранного работника: 1- ДА 2 - НЕТ");
-            Scanner inDel = new Scanner(System.in);
-            int temp = inDel.nextInt();
-            if (temp == 1) {
-                removeEmployee();
+    void changeEmployee() throws Exception {
+        new ChangeClass().changeFirstName(controller.getIndex());
+        removeEmployee();
+    }
+
+    void choiceRemoveOrChange() throws Exception {
+        try {
+            System.out.println("1 - Удаление работника 2 - Изменение данных работника 3 - Вернуться в поиск");
+            Scanner in = new Scanner(System.in);
+            int temp = in.nextInt();
+            switch (temp){
+                case 1:
+                    outRemove();
+                    break;
+                case 2:
+                    changeEmployee();
+                    break;
+                case 3:
+                    changeSearch(1);
+                    break;
+                default:
+                    System.out.println("Неверный ввод!!! Повторите еще раз.");
+                    choiceRemoveOrChange();
+                    break;
             }
-            else changeSearch(1);
+        }catch (InputMismatchException e){
+            System.out.println("Неверный ввод!!! Повторите еще раз.");
+            choiceRemoveOrChange();
+        }
+    }
+
+    void outRemove() throws Exception {
+           try {
+               System.out.println("Удалить выбранного работника: 1- ДА 2 - НЕТ");
+               Scanner inDel = new Scanner(System.in);
+               int temp = inDel.nextInt();
+               if (temp == 1) {
+                   removeEmployee();
+               }
+               else changeSearch(1);
+           }catch (InputMismatchException e){
+               System.out.println("Неверный ввод!!! Повторите еще раз.");
+               outRemove();
+           }
 
     }
 

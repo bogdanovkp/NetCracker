@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -15,11 +16,12 @@ public class ControllerClass implements Controller  {
     final int PHONE=3;
     final int SALARY=4;
     private  Employee employee = new Employee("","","",0,new Dept("", new Chief("","")));
-    private int index;
+    private ArrayList index = new ArrayList<Integer>();
 
-    public int getIndex() {
+    public ArrayList getIndex() {
         return index;
     }
+
     public ArrayList search(int typeOfSearch, ArrayList<Employee> x) throws Exception {
         Double salarySearch;
         ArrayList temp = new ArrayList();
@@ -32,7 +34,7 @@ public class ControllerClass implements Controller  {
                     for (int element = 0; element < x.size(); element++) {
                         if (dataSearch.equals(x.get(element).getFirstname()) || dataSearch.equals(x.get(element).getLastname())) {
                             temp.add(x.get(element));
-                            index = element;
+                            index.add(element);
                         }
                     }
                     if (!temp.isEmpty()){
@@ -97,7 +99,7 @@ public class ControllerClass implements Controller  {
         else new ModelClass().addEmployeeOnremove(data);
     }
      void addFirstName (String firstName) throws MyException {
-         if (firstName.equals(" ")){
+         if (firstName.equals("")){
          Scanner in = new Scanner(System.in);
          String temp = in.nextLine();
         if (!ValidationChecking.checkName(temp)) throw new MyException("Неверно введено имя. Повторите ввод:");
@@ -107,7 +109,7 @@ public class ControllerClass implements Controller  {
 
     }
      void addLastName (String lastName) throws MyException {
-         if (lastName.equals(" ")) {
+         if (lastName.equals("")) {
              Scanner in = new Scanner(System.in);
              String temp = in.nextLine();
              if (!ValidationChecking.checkName(temp)) throw new MyException("Неверно введена фамилия. Повторите ввод:");
@@ -116,7 +118,7 @@ public class ControllerClass implements Controller  {
          else employee.setLastname(lastName);
     }
       void addPhone (String phone) throws MyException {
-          if (phone.equals(" ")) {
+          if (phone.equals("")) {
               Scanner in = new Scanner(System.in);
               String temp = in.nextLine();
               if (!ValidationChecking.checkPhone(temp))
@@ -126,7 +128,7 @@ public class ControllerClass implements Controller  {
           else employee.setPhone(phone);
     }
      void addSalary (String salary) throws MyException {
-         if (salary.equals(" ")) {
+         if (salary.equals("")) {
              Scanner in = new Scanner(System.in);
              String temp = in.nextLine();
              if (!ValidationChecking.checkSalary(temp))
@@ -136,7 +138,7 @@ public class ControllerClass implements Controller  {
          else employee.setSalary(new Double(salary));
     }
       void addTitle (String title) throws MyException {
-          if (title.equals(" ")) {
+          if (title.equals("")) {
               Scanner in = new Scanner(System.in);
               String temp = in.nextLine();
               if (!ValidationChecking.checkDept(temp))
@@ -146,7 +148,7 @@ public class ControllerClass implements Controller  {
           else employee.getDept().setTitle(title);
     }
       void addChiefFirstName (String chiefFirstName) throws MyException {
-          if (chiefFirstName.equals(" ")) {
+          if (chiefFirstName.equals("")) {
               Scanner in = new Scanner(System.in);
               String temp = in.nextLine();
               if (!ValidationChecking.checkName(temp))
@@ -156,7 +158,7 @@ public class ControllerClass implements Controller  {
           else employee.getDept().getChief().setFirstName(chiefFirstName);
     }
      void addChiefLastName (String chiefLastName) throws MyException {
-         if (chiefLastName.equals(" ")) {
+         if (chiefLastName.equals("")) {
              Scanner in = new Scanner(System.in);
              String temp = in.nextLine();
              if (!ValidationChecking.checkName(temp))

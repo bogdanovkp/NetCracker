@@ -16,7 +16,7 @@ public class ChangeClass {
             switch (temp){
                 case 1:
                     System.out.println("Введите имя:");
-                    controllerClass.addFirstName(" ");
+                    controllerClass.addFirstName("");
                     break;
                 case 2:
                     controllerClass.addFirstName(model.employeeMain().get(index).getFirstname());
@@ -45,7 +45,7 @@ public class ChangeClass {
             switch (temp){
                 case 1:
                     System.out.println("Введите Фамилию:");
-                    controllerClass.addLastName(" ");
+                    controllerClass.addLastName("");
                     break;
                 case 2:
                     controllerClass.addLastName(model.employeeMain().get(index).getFirstname());
@@ -74,7 +74,7 @@ public class ChangeClass {
             switch (temp){
                 case 1:
                     System.out.println("Введите телефон:");
-                    controllerClass.addPhone(" ");
+                    controllerClass.addPhone("");
                     break;
                 case 2:
                     controllerClass.addPhone(model.employeeMain().get(index).getPhone());
@@ -103,7 +103,7 @@ public class ChangeClass {
             switch (temp){
                 case 1:
                     System.out.println("Введите зарплату:");
-                    controllerClass.addSalary(" ");
+                    controllerClass.addSalary("");
                     break;
                 case 2:
                     controllerClass.addSalary(String.valueOf(model.employeeMain().get(index).getSalary()));
@@ -132,7 +132,7 @@ public class ChangeClass {
             switch (temp){
                 case 1:
                     System.out.println("Введите название отдела:");
-                    controllerClass.addTitle(" ");
+                    controllerClass.addTitle("");
                     break;
                 case 2:
                     controllerClass.addTitle(model.employeeMain().get(index).getDept().getTitle());
@@ -161,7 +161,7 @@ public class ChangeClass {
             switch (temp){
                 case 1:
                     System.out.println("Введите имя начальника отдела:");
-                    controllerClass.addChiefFirstName(" ");
+                    controllerClass.addChiefFirstName("");
                     break;
                 case 2:
                     controllerClass.addChiefFirstName(model.employeeMain().get(index).getDept().getChief().getFirstName());
@@ -190,7 +190,7 @@ public class ChangeClass {
             switch (temp){
                 case 1:
                     System.out.println("Введите фамилию начальника отдела:");
-                    controllerClass.addChiefLastName(" ");
+                    controllerClass.addChiefLastName("");
                     break;
                 case 2:
                     controllerClass.addChiefLastName(model.employeeMain().get(index).getDept().getChief().getLastName());

@@ -81,7 +81,11 @@ public class VIew {
     void searchMethod(int item) throws Exception {
         try {
             employee = controller.search(item, new ModelClass().employeeMain());
-            for (int element = 0; element < employee.size(); element++) outEmployee(employee.get(element));
+
+            for (int element = 0; element < employee.size(); element++) {
+                System.out.print(controller.getIndex().get(element) + "   ");
+                outEmployee(employee.get(element));
+            }
 
         } catch (MyException e){
             System.out.println(e.getMessage());
@@ -216,16 +220,21 @@ public class VIew {
         }
     }
     void changeEmployee() throws Exception {
-        new ChangeClass().changeFirstName(controller.getIndex());
-        removeEmployee();
+        System.out.println("Введите позицию для изменения:");
+        Scanner in = new Scanner(System.in);
+        int index = in.nextInt();
+        new ChangeClass().changeFirstName(index);
+        removeEmployee(index);
     }
     void outRemove() throws Exception {
            try {
-               System.out.println("Удалить выбранного работника: 1- ДА 2 - НЕТ");
+               System.out.println("Введите позицию для удаления:");
                Scanner inDel = new Scanner(System.in);
+               int pozitionDel = inDel.nextInt();
+               System.out.println("Удалить выбранного работника: 1- ДА 2 - НЕТ");
                int temp = inDel.nextInt();
                if (temp == 1) {
-                   removeEmployee();
+                   removeEmployee(pozitionDel);
                }
                else changeSearch(1);
            }catch (InputMismatchException e){
@@ -234,8 +243,8 @@ public class VIew {
            }
 
     }
-    void removeEmployee() throws Exception {
-        controller.remove(controller.getIndex(), new ModelClass().employeeMain());
+    void removeEmployee(int index) throws Exception {
+        controller.remove(index, new ModelClass().employeeMain());
         System.out.println("Удаление завершено.");
         menu();
     }

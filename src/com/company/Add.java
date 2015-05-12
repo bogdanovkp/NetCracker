@@ -5,7 +5,7 @@ public class Add {
      void addNewFirstName() throws Exception {
         try {
             System.out.println("Введите имя:");
-            controller.addFirstName(" ");
+            controller.addFirstName("");
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewFirstName();
@@ -15,7 +15,7 @@ public class Add {
      void addNewLastName() throws Exception {
         try {
             System.out.println("Введите фамилию:");
-            controller.addLastName(" ");
+            controller.addLastName("");
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewLastName();
@@ -25,7 +25,7 @@ public class Add {
      void addNewPhone() throws Exception {
         try {
             System.out.println("Введите телефон:");
-            controller.addPhone(" ");
+            controller.addPhone("");
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewPhone();
@@ -35,7 +35,7 @@ public class Add {
      void addNewSalary() throws Exception {
         try {
             System.out.println("Введите зарплату:");
-            controller.addSalary(" ");
+            controller.addSalary("");
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewSalary();
@@ -45,7 +45,7 @@ public class Add {
      void addNewTitle() throws Exception {
         try {
             System.out.println("Введите название отдела:");
-            controller.addTitle(" ");
+            controller.addTitle("");
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewTitle();
@@ -55,7 +55,7 @@ public class Add {
      void addNewChiefFirstName() throws Exception {
         try {
             System.out.println("Введите имя начальника отдела:");
-            controller.addChiefFirstName(" ");
+            controller.addChiefFirstName("");
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewChiefFirstName();
@@ -65,7 +65,7 @@ public class Add {
      void addNewChiefLastName() throws Exception {
         try {
             System.out.println("Введите фамилию начальника отдела:");
-            controller.addChiefLastName(" ");
+            controller.addChiefLastName("");
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewChiefLastName();

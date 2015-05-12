@@ -53,7 +53,7 @@ public  class ModelClass{
         String json = gson.toJson(example);
         writeFile(json);
     }
-    void addEmployeeOnremove(ArrayList<Employee> example) throws IOException {
+    void addEmployeeOnremove(ArrayList example) throws IOException {
         Gson gson = new Gson();
         String json;
         for (int element = 0; element < example.size(); element ++){
@@ -64,6 +64,7 @@ public  class ModelClass{
     void writeFileOnremove(String stroka) throws IOException{
         FileWriter fileWrite = new FileWriter(FILENAME,false);
         try {
+            cleanFile();
             fileWrite.write(stroka + "\r\n");
             fileWrite.flush();
 
@@ -72,6 +73,19 @@ public  class ModelClass{
         }finally {
             fileWrite.close();
         }
+    }
+
+    void cleanFile() throws IOException {
+        FileWriter fileWrite = new FileWriter(FILENAME,false);
+        try {
+            fileWrite.write("");
+            fileWrite.flush();
+        }catch (IOException e){
+            System.out.println("Файл не найден!");
+        }finally {
+            fileWrite.close();
+        }
+
     }
 }
 

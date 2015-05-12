@@ -42,7 +42,7 @@ public class ControllerClass implements Controller  {
                         throw new Exception("Не найдено!");
                     }
                 case DEPT:
-                    if (!ValidationChecking.checkDept(dataSearch))throw new MyException("Неправильно введен отдел или ФИО начальник. Повторите ввод:");
+                    if (!ValidationChecking.checkDept(dataSearch))throw new MyException("Неправильно введен отдел или ФИО начальника. Повторите ввод:");
                     for (int element = 0; element < x.size(); element++) {
                         if (dataSearch.equals(x.get(element).getDept().getChief().getFirstName()) ||dataSearch.equals(x.get(element).getDept().getChief().getLastName()) || dataSearch.equals(x.get(element).getDept().getTitle())) {
                             temp.add(x.get(element));
@@ -89,9 +89,12 @@ public class ControllerClass implements Controller  {
             }
         }
     }
-    void remove (int indexForRemove, ArrayList<Employee> data) throws IOException {
+    void remove (int indexForRemove, ArrayList data) throws IOException {
         data.remove(indexForRemove);
-        new ModelClass().addEmployeeOnremove(data);
+        if (data.size() == 0) {
+            new ModelClass().cleanFile();
+        }
+        else new ModelClass().addEmployeeOnremove(data);
     }
      void addFirstName (String firstName) throws MyException {
          if (firstName.equals(" ")){

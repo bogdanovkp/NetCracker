@@ -20,12 +20,6 @@ public class ControllerClass implements Controller  {
     public int getIndex() {
         return index;
     }
-
-    void remove (int indexForRemove, ArrayList<Employee> data) throws IOException {
-        data.remove(indexForRemove);
-        new ModelClass().addEmployeeOnremove(data);
-    }
-
     public ArrayList search(int typeOfSearch, ArrayList<Employee> x) throws Exception {
         Double salarySearch;
         ArrayList temp = new ArrayList();
@@ -95,13 +89,10 @@ public class ControllerClass implements Controller  {
             }
         }
     }
-
-    void changeEmployee(int indexEmployee, ArrayList<Employee> data){
-
-
+    void remove (int indexForRemove, ArrayList<Employee> data) throws IOException {
+        data.remove(indexForRemove);
+        new ModelClass().addEmployeeOnremove(data);
     }
-
-
      void addFirstName (String firstName) throws MyException {
          if (firstName.equals(" ")){
          Scanner in = new Scanner(System.in);
@@ -171,7 +162,6 @@ public class ControllerClass implements Controller  {
          }
          else employee.getDept().getChief().setLastName(chiefLastName);
     }
-
       void addEmployee () throws IOException {
         new ModelClass().addEmployeeFile(employee);
     }

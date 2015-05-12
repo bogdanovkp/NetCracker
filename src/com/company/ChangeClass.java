@@ -6,8 +6,6 @@ import java.util.Scanner;
 public class ChangeClass {
     private ControllerClass controllerClass = new ControllerClass();
     private ModelClass model = new ModelClass();
-
-
     void changeFirstName(int index) throws Exception {
         try {
             System.out.println("Имя:");
@@ -31,10 +29,12 @@ public class ChangeClass {
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             changeFirstName(index);
+        }catch (MyException e){
+            System.out.println(e.getMessage());
+            changeFirstName(index);
         }
         changeLastName(index);
     }
-
     void changeLastName(int index) throws Exception {
         try {
             System.out.println("Фамилия:");
@@ -58,10 +58,12 @@ public class ChangeClass {
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             changeLastName(index);
+        }catch (MyException e){
+            System.out.println(e.getMessage());
+            changeLastName(index);
         }
         changePhone(index);
     }
-
     void changePhone(int index) throws Exception {
         try {
             System.out.println("Телефон:");
@@ -85,10 +87,12 @@ public class ChangeClass {
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             changePhone(index);
+        }catch (MyException e){
+            System.out.println(e.getMessage());
+            changePhone(index);
         }
         changeSalary(index);
     }
-
     void changeSalary(int index) throws Exception {
         try {
             System.out.println("Зарплата:");
@@ -112,10 +116,12 @@ public class ChangeClass {
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             changeSalary(index);
+        }catch (MyException e){
+            System.out.println(e.getMessage());
+            changeSalary(index);
         }
         changeTitle(index);
     }
-
     void changeTitle(int index) throws Exception {
         try {
             System.out.println("Название отдела:");
@@ -139,10 +145,12 @@ public class ChangeClass {
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             changeTitle(index);
+        }catch (MyException e){
+            System.out.println(e.getMessage());
+            changeTitle(index);
         }
         changeChiefFirstName(index);
     }
-
     void changeChiefFirstName(int index) throws Exception {
         try {
             System.out.println("Имя начальника отдела:");
@@ -166,10 +174,12 @@ public class ChangeClass {
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
             changeChiefFirstName(index);
+        }catch (MyException e){
+            System.out.println(e.getMessage());
+            changeChiefFirstName(index);
         }
         changeChiefLastName(index);
     }
-
     void changeChiefLastName(int index) throws Exception {
         try {
             System.out.println("Фамилия начальника отдела:");
@@ -192,6 +202,9 @@ public class ChangeClass {
 
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
+            changeChiefLastName(index);
+        }catch (MyException e){
+            System.out.println(e.getMessage());
             changeChiefLastName(index);
         }
         controllerClass.addEmployee();

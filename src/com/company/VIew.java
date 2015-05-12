@@ -42,12 +42,6 @@ public class VIew {
             menu();
         }
     }
-
-    void removeEmployee() throws Exception {
-            controller.remove(controller.getIndex(), new ModelClass().employeeMain());
-            System.out.println("Удаление завершено.");
-            menu();
-    }
     void searchOut() throws Exception {
         System.out.println("1: Поиск по имени");
         System.out.println("2: Поиск по отделу");
@@ -84,7 +78,6 @@ public class VIew {
             searchOut();
         }
     }
-
     void searchMethod(int item) throws Exception {
         try {
             employee = controller.search(item, new ModelClass().employeeMain());
@@ -103,55 +96,7 @@ public class VIew {
         }
         else changeSearch(item);
     }
-
-    void changeEmployee() throws Exception {
-        new ChangeClass().changeFirstName(controller.getIndex());
-        removeEmployee();
-    }
-
-    void choiceRemoveOrChange() throws Exception {
-        try {
-            System.out.println("1 - Удаление работника 2 - Изменение данных работника 3 - Вернуться в поиск");
-            Scanner in = new Scanner(System.in);
-            int temp = in.nextInt();
-            switch (temp){
-                case 1:
-                    outRemove();
-                    break;
-                case 2:
-                    changeEmployee();
-                    break;
-                case 3:
-                    changeSearch(1);
-                    break;
-                default:
-                    System.out.println("Неверный ввод!!! Повторите еще раз.");
-                    choiceRemoveOrChange();
-                    break;
-            }
-        }catch (InputMismatchException e){
-            System.out.println("Неверный ввод!!! Повторите еще раз.");
-            choiceRemoveOrChange();
-        }
-    }
-
-    void outRemove() throws Exception {
-           try {
-               System.out.println("Удалить выбранного работника: 1- ДА 2 - НЕТ");
-               Scanner inDel = new Scanner(System.in);
-               int temp = inDel.nextInt();
-               if (temp == 1) {
-                   removeEmployee();
-               }
-               else changeSearch(1);
-           }catch (InputMismatchException e){
-               System.out.println("Неверный ввод!!! Повторите еще раз.");
-               outRemove();
-           }
-
-    }
-
-     void searchOutMenu(int item) throws Exception {
+    void searchOutMenu(int item) throws Exception {
         switch (item) {
             case 1:
                 System.out.println("Введите имя или фамилию:");
@@ -171,8 +116,7 @@ public class VIew {
                 break;
         }
     }
-
-     void changeSearch( int searchCriterium) throws Exception {
+    void changeSearch( int searchCriterium) throws Exception {
         try{
             System.out.println("Продолжить поиск: 1 - ДА   2 - НЕТ");
             Scanner in = new Scanner(System.in);
@@ -217,8 +161,7 @@ public class VIew {
             changeCriteria(changeSearchCriterium);
         }
     }
-
-     void menuAdd() throws Exception {
+    void menuAdd() throws Exception {
         System.out.println("1: Добавить нового сотрудника.");
         System.out.println("2: Назад.");
         try {
@@ -242,21 +185,64 @@ public class VIew {
             menuAdd();
         }
     }
-
-     void addNewEmployee() throws Exception {
+    void addNewEmployee() throws Exception {
         new Add().addNewFirstName();
         System.out.println("Запись прошла успешно!!!");
         menu();
     }
+    void choiceRemoveOrChange() throws Exception {
+        try {
+            System.out.println("1 - Удаление работника 2 - Изменение данных работника 3 - Вернуться в поиск");
+            Scanner in = new Scanner(System.in);
+            int temp = in.nextInt();
+            switch (temp){
+                case 1:
+                    outRemove();
+                    break;
+                case 2:
+                    changeEmployee();
+                    break;
+                case 3:
+                    changeSearch(1);
+                    break;
+                default:
+                    System.out.println("Неверный ввод!!! Повторите еще раз.");
+                    choiceRemoveOrChange();
+                    break;
+            }
+        }catch (InputMismatchException e){
+            System.out.println("Неверный ввод!!! Повторите еще раз.");
+            choiceRemoveOrChange();
+        }
+    }
+    void changeEmployee() throws Exception {
+        new ChangeClass().changeFirstName(controller.getIndex());
+        removeEmployee();
+    }
+    void outRemove() throws Exception {
+           try {
+               System.out.println("Удалить выбранного работника: 1- ДА 2 - НЕТ");
+               Scanner inDel = new Scanner(System.in);
+               int temp = inDel.nextInt();
+               if (temp == 1) {
+                   removeEmployee();
+               }
+               else changeSearch(1);
+           }catch (InputMismatchException e){
+               System.out.println("Неверный ввод!!! Повторите еще раз.");
+               outRemove();
+           }
 
+    }
+    void removeEmployee() throws Exception {
+        controller.remove(controller.getIndex(), new ModelClass().employeeMain());
+        System.out.println("Удаление завершено.");
+        menu();
+    }
      void outEmployee(Employee x){
         System.out.println(x.getFirstname() + "  " + x.getLastname() + "  " + x.getDept().getTitle() + "  " + x.getDept().getChief().getFirstName()
                 + "  " + x.getDept().getChief().getLastName() + "  " + x.getPhone() + "  " + x.getSalary());
-
-    }
-     static void outNotFound() {
-        System.out.println("Не найдено!!!");
-    }
-
+     }
 }
+
 

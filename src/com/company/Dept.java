@@ -10,18 +10,15 @@ public class Dept {
     }
 
     public Chief getChief() {
+
         return chief;
     }
     public String getTitle() {
+
         return title;
     }
-
-    public void setChief(Chief chief){
-
-        this.chief = chief;
-    }
-
     public void setTitle(String title) {
+
         this.title = title;
     }
 }

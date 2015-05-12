@@ -20,7 +20,6 @@ public  class ModelClass{
         }
             return employeeList;
     }
-
       ArrayList readFile() throws IOException {
         Scanner in = null;
         ArrayList<String> data = new ArrayList<>();
@@ -36,7 +35,6 @@ public  class ModelClass{
         }
         return data;
     }
-
       void writeFile(String stroka) throws IOException {
           FileWriter fileWrite =  new FileWriter(FILENAME, true);
         try {
@@ -50,13 +48,11 @@ public  class ModelClass{
             fileWrite.close();
         }
     }
-
     void addEmployeeFile(Employee example) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(example);
         writeFile(json);
     }
-
     void addEmployeeOnremove(ArrayList<Employee> example) throws IOException {
         Gson gson = new Gson();
         String json;
@@ -65,7 +61,6 @@ public  class ModelClass{
             writeFileOnremove(json);
         }
     }
-
     void writeFileOnremove(String stroka) throws IOException{
         FileWriter fileWrite = new FileWriter(FILENAME,false);
         try {

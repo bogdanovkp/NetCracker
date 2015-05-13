@@ -249,7 +249,6 @@ public class VIew {
         menu();
     }
 
-
      void outEmployee(Employee x){
         System.out.println(x.getFirstname() + "  " + x.getLastname() + "  " + x.getDept().getTitle() + "  " + x.getDept().getChief().getFirstName()
                 + "  " + x.getDept().getChief().getLastName() + "  " + x.getPhone() + "  " + x.getSalary());

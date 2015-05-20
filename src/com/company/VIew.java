@@ -224,6 +224,7 @@ public class VIew {
         Scanner in = new Scanner(System.in);
         int index = in.nextInt();
         new ChangeClass().changeFirstName(index);
+        System.out.println("Изменение завершено.");
         removeEmployee(index);
     }
     void outRemove() throws Exception {

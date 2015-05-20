@@ -25,6 +25,7 @@ public class ChangeClass {
                     System.out.println("Неверный ввод!!! Повторите еще раз.");
                     changeFirstName(index);
             }
+            changeLastName(index);
 
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
@@ -33,7 +34,7 @@ public class ChangeClass {
             System.out.println(e.getMessage());
             changeFirstName(index);
         }
-        changeLastName(index);
+
     }
     void changeLastName(int index) throws Exception {
         try {
@@ -54,6 +55,7 @@ public class ChangeClass {
                     System.out.println("Неверный ввод!!! Повторите еще раз.");
                     changeLastName(index);
             }
+            changePhone(index);
 
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
@@ -62,7 +64,7 @@ public class ChangeClass {
             System.out.println(e.getMessage());
             changeLastName(index);
         }
-        changePhone(index);
+
     }
     void changePhone(int index) throws Exception {
         try {
@@ -83,6 +85,7 @@ public class ChangeClass {
                     System.out.println("Неверный ввод!!! Повторите еще раз.");
                     changePhone(index);
             }
+            changeSalary(index);
 
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
@@ -91,7 +94,7 @@ public class ChangeClass {
             System.out.println(e.getMessage());
             changePhone(index);
         }
-        changeSalary(index);
+
     }
     void changeSalary(int index) throws Exception {
         try {
@@ -112,6 +115,7 @@ public class ChangeClass {
                     System.out.println("Неверный ввод!!! Повторите еще раз.");
                     changeSalary(index);
             }
+            changeTitle(index);
 
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
@@ -120,7 +124,7 @@ public class ChangeClass {
             System.out.println(e.getMessage());
             changeSalary(index);
         }
-        changeTitle(index);
+
     }
     void changeTitle(int index) throws Exception {
         try {
@@ -141,6 +145,7 @@ public class ChangeClass {
                     System.out.println("Неверный ввод!!! Повторите еще раз.");
                     changeTitle(index);
             }
+            changeChiefFirstName(index);
 
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
@@ -149,7 +154,7 @@ public class ChangeClass {
             System.out.println(e.getMessage());
             changeTitle(index);
         }
-        changeChiefFirstName(index);
+
     }
     void changeChiefFirstName(int index) throws Exception {
         try {
@@ -170,6 +175,7 @@ public class ChangeClass {
                     System.out.println("Неверный ввод!!! Повторите еще раз.");
                     changeChiefFirstName(index);
             }
+            changeChiefLastName(index);
 
         }catch (InputMismatchException e){
             System.out.println("Неверный ввод!!! Повторите еще раз.");
@@ -178,7 +184,7 @@ public class ChangeClass {
             System.out.println(e.getMessage());
             changeChiefFirstName(index);
         }
-        changeChiefLastName(index);
+
     }
     void changeChiefLastName(int index) throws Exception {
         try {

@@ -6,61 +6,67 @@ public class Add {
         try {
             System.out.println("Введите имя:");
             controller.addFirstName("");
+            addNewLastName();
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewFirstName();
         }
-        addNewLastName();
+
     }
      void addNewLastName() throws Exception {
         try {
             System.out.println("Введите фамилию:");
             controller.addLastName("");
+            addNewPhone();
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewLastName();
         }
-        addNewPhone();
+
     }
      void addNewPhone() throws Exception {
         try {
             System.out.println("Введите телефон:");
             controller.addPhone("");
+            addNewSalary();
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewPhone();
         }
-        addNewSalary();
+
     }
      void addNewSalary() throws Exception {
         try {
             System.out.println("Введите зарплату:");
             controller.addSalary("");
+            addNewTitle();
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewSalary();
         }
-        addNewTitle();
+
     }
      void addNewTitle() throws Exception {
         try {
             System.out.println("Введите название отдела:");
             controller.addTitle("");
+            addNewChiefFirstName();
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewTitle();
         }
-        addNewChiefFirstName();
+
     }
      void addNewChiefFirstName() throws Exception {
         try {
             System.out.println("Введите имя начальника отдела:");
             controller.addChiefFirstName("");
+            addNewChiefLastName();
         } catch (MyException e) {
             System.out.println(e.getMessage());
             addNewChiefFirstName();
         }
-        addNewChiefLastName();
+
     }
      void addNewChiefLastName() throws Exception {
         try {

@@ -97,22 +97,27 @@ public class ControllerClass implements Controller  {
         }
         else new ModelClass().addEmployeeOnremove(data);
     }
+
      void addFirstName (String firstName) throws MyException {
          if (firstName.equals("")){
          Scanner in = new Scanner(System.in);
          String temp = in.nextLine();
-        if (!ValidationChecking.checkName(temp)) throw new MyException("Неверно введено имя. Повторите ввод:");
-        employee.setFirstname(temp);
+        if (!ValidationChecking.checkName(temp)) {
+            throw new MyException("Неверно введено имя. Повторите ввод:");
+
+        }
+        else employee.setFirstname(temp);
          }
          else employee.setFirstname(firstName);
-
     }
      void addLastName (String lastName) throws MyException {
          if (lastName.equals("")) {
              Scanner in = new Scanner(System.in);
              String temp = in.nextLine();
-             if (!ValidationChecking.checkName(temp)) throw new MyException("Неверно введена фамилия. Повторите ввод:");
-             employee.setLastname(temp);
+             if (!ValidationChecking.checkName(temp)) {
+                 throw new MyException("Неверно введена фамилия. Повторите ввод:");
+             }
+             else employee.setLastname(temp);
          }
          else employee.setLastname(lastName);
     }
@@ -120,9 +125,10 @@ public class ControllerClass implements Controller  {
           if (phone.equals("")) {
               Scanner in = new Scanner(System.in);
               String temp = in.nextLine();
-              if (!ValidationChecking.checkPhone(temp))
+              if (!ValidationChecking.checkPhone(temp)) {
                   throw new MyException("Неверно введен телефон. Повторите ввод:");
-              employee.setPhone(temp);
+              }
+              else employee.setPhone(temp);
           }
           else employee.setPhone(phone);
     }
@@ -130,9 +136,10 @@ public class ControllerClass implements Controller  {
          if (salary.equals("")) {
              Scanner in = new Scanner(System.in);
              String temp = in.nextLine();
-             if (!ValidationChecking.checkSalary(temp))
+             if (!ValidationChecking.checkSalary(temp)) {
                  throw new MyException("Неверно введена зарплата. Повторите ввод:");
-             employee.setSalary(new Double(temp));
+             }
+             else employee.setSalary(new Double(temp));
          }
          else employee.setSalary(new Double(salary));
     }
@@ -140,9 +147,10 @@ public class ControllerClass implements Controller  {
           if (title.equals("")) {
               Scanner in = new Scanner(System.in);
               String temp = in.nextLine();
-              if (!ValidationChecking.checkDept(temp))
+              if (!ValidationChecking.checkDept(temp)) {
                   throw new MyException("Неверно введено название отдела. Повторите ввод:");
-              employee.getDept().setTitle(temp);
+              }
+              else employee.getDept().setTitle(temp);
           }
           else employee.getDept().setTitle(title);
     }
@@ -150,9 +158,10 @@ public class ControllerClass implements Controller  {
           if (chiefFirstName.equals("")) {
               Scanner in = new Scanner(System.in);
               String temp = in.nextLine();
-              if (!ValidationChecking.checkName(temp))
+              if (!ValidationChecking.checkName(temp)) {
                   throw new MyException("Неверно введено имя начальника отдела. Повторите ввод:");
-              employee.getDept().getChief().setFirstName(temp);
+              }
+              else employee.getDept().getChief().setFirstName(temp);
           }
           else employee.getDept().getChief().setFirstName(chiefFirstName);
     }
@@ -160,9 +169,10 @@ public class ControllerClass implements Controller  {
          if (chiefLastName.equals("")) {
              Scanner in = new Scanner(System.in);
              String temp = in.nextLine();
-             if (!ValidationChecking.checkName(temp))
+             if (!ValidationChecking.checkName(temp)) {
                  throw new MyException("Неверно введена фамилия начальника отдела. Повторите ввод:");
-             employee.getDept().getChief().setLastName(temp);
+             }
+             else employee.getDept().getChief().setLastName(temp);
          }
          else employee.getDept().getChief().setLastName(chiefLastName);
     }

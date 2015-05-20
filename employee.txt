@@ -1,2 +1,1 @@
-{"firstname":"qqq","lastname":"qqq","dept":{"title":"111","chief":{"firstName":"qqq","lastName":"qqq"}},"phone":"111","salary":111.0}
-{"firstname":"qqq","lastname":"qqq","dept":{"title":"111","chief":{"firstName":"qqq","lastName":"qqq"}},"phone":"111","salary":111.0}
+{"firstname":"qqq","lastname":"qqq","dept":{"title":"qqq","chief":{"firstName":"qqq","lastName":"qqq"}},"phone":"111","salary":111.0}
